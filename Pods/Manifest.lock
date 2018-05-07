@@ -1,0 +1,70 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - FLAnimatedImage (1.0.12)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15)
+  - OLImageView (1.5.1):
+    - OLImageView/Core (= 1.5.1)
+  - OLImageView/Core (1.5.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SVProgressHUD (2.2.2)
+  - UMengUShare/Core (6.4.6):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.6)
+  - UMengUShare/Social/ReducedQQ (6.4.6):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedSina (6.4.6):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.6):
+    - UMengUShare/Core
+  - UMengUShare/UI (6.4.6):
+    - UMengUShare/Core
+  - WechatOpenSDK (1.8.0)
+  - ZFPlayer (2.1.5):
+    - Masonry
+
+DEPENDENCIES:
+  - AFNetworking
+  - FLAnimatedImage (~> 1.0)
+  - MJRefresh
+  - OLImageView (~> 1.5.1)
+  - SDWebImage (~> 4.0.0)
+  - SVProgressHUD
+  - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI
+  - WechatOpenSDK
+  - ZFPlayer
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  OLImageView: e03cd533ce6b1a155acb9f708ab9b2e71ea070d5
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  UMengUShare: fdbbf86353976727af26a66e9a84314ecb59c816
+  WechatOpenSDK: 0ee07a8d492299d3e47372a33da5af26524a7576
+  ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
+
+PODFILE CHECKSUM: da96febe4dd7cf22fca4fbf1fd4ce208b7dc5e3e
+
+COCOAPODS: 1.2.0
