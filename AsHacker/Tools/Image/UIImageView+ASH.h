@@ -17,4 +17,6 @@
 - (void)ash_setImageWithURL:(NSString *)strURL placeholderImage:(NSString *)placeholder completed:(SDExternalCompletionBlock)completedBlock;
 
 
+// 设置图片的大小，限制大小
+-(void)limitImage:(NSString *)name withSize:(CGSize)size;
 @end

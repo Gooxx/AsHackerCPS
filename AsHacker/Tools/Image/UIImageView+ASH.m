@@ -50,4 +50,18 @@
 //    [self sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:placeholder?placeholder:@"icon"] completed:completedBlock];
 }
 
+-(void)limitImage:(NSString *)name withSize:(CGSize)size{
+    UIImage * icon = [UIImage imageNamed:name];
+    CGSize itemSize = size ;// CGSizeMake(36, 36);//固定图片大小为36*36
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0);//*1
+    CGRect imageRect = CGRectMake(0, 0, itemSize.width, itemSize.height);
+    [icon drawInRect:imageRect];
+    self.image = UIGraphicsGetImageFromCurrentImageContext();//*2
+//    self sd_
+//    [self sd_setImageWithURL:UIGraphicsGetImageFromCurrentImageContext() placeholderImage:[UIImage imageNamed:@"icon"] completed:nil];
+    UIGraphicsEndImageContext();
+    
+//   [self sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:placeholder?placeholder:@"icon"] completed:completedBlock];
+}
+
 @end

@@ -16,41 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    NSArray *arr =  self.childViewControllers;
-//    UIViewController *c1 = arr[2];
-//    UIImage *image = [UIImage imageNamed:@"主页"];
-//    [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    
-//    UIImage *image2 = [UIImage imageNamed:@"主页_press"];
-//    [image2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-//    c1.tabBarItem.image = image;
-//    c1.tabBarItem.selectedImage = image2;
-//    
-    
-    self.tabBar.tintColor = MOMDarkGrayColor;
-    UINavigationController *MAINNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"mainTableNaviController"];
-//    MAINNavi.tabBarItem.image = image;
-//    MAINNavi.tabBarItem.selectedImage = image2;
-//    NSMutableDictionary *textAttrs = [NSMutableDictionarymdictionary];
-//    textAttrs[NSForegroundColorAttributeName] =HWColor(123,123, 123);
-//    
-//    NSMutableDictionary *selectTextAttrs = [NSMutableDictionarymdictionary];
-//    selectTextAttrs[NSForegroundColorAttributeName] = [UIColororangeColor];
-//    
-//    [childVc.tabBarItemsetTitleTextAttributes:textAttrs forState:UIControlStateNormal];
-//    [childVc.tabBarItemsetTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    
-    UINavigationController *DATANavi = [self.storyboard instantiateViewControllerWithIdentifier:@"activityTableController2"];
-    
-    UINavigationController *USERNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"mineNavi"];
-    
-    
-    self.viewControllers = @[MAINNavi,DATANavi,USERNavi];
 
-//    self.
-//    [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    self.tabBar.tintColor = MOMDarkGrayColor;
+//    UINavigationController *MAINNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"mainTableNaviController"];
+//
+//    UINavigationController *DATANavi = [self.storyboard instantiateViewControllerWithIdentifier:@"activityTableController2"];
+//
+//    UINavigationController *USERNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"mineNavi"];
+//
+//    self.viewControllers = @[MAINNavi,DATANavi,USERNavi];
+    
+    
+//    UINavigationController *cpsMainNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"cpsMainNavi"];
+//    
+//    UINavigationController *cpsServiceNavi = [self.storyboard instantiateViewControllerWithIdentifier:@"cpsServiceNavi"];
+//    
+//    self.viewControllers =@[cpsMainNavi,cpsServiceNavi];
+
 }
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item;
 {
