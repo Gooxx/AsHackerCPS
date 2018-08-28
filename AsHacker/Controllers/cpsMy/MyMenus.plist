@@ -5,7 +5,7 @@
 	<array>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHCPSServiceViewController</string>
 			<key>img</key>
 			<string>车品尚服务</string>
 			<key>name</key>
@@ -13,7 +13,7 @@
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHMyCollectTableViewController</string>
 			<key>img</key>
 			<string>我的收藏</string>
 			<key>name</key>
@@ -21,7 +21,7 @@
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHMyPublicTableViewController</string>
 			<key>img</key>
 			<string>我的发布</string>
 			<key>name</key>
@@ -29,7 +29,7 @@
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHMyMissionTableViewController</string>
 			<key>img</key>
 			<string>每日任务</string>
 			<key>name</key>
@@ -39,7 +39,7 @@
 	<array>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHBIZActivityTableViewController</string>
 			<key>img</key>
 			<string>商家活动</string>
 			<key>name</key>
@@ -47,15 +47,15 @@
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHMyAttentionTableViewController</string>
 			<key>img</key>
 			<string>我的关注</string>
 			<key>name</key>
-			<string>我的关组</string>
+			<string>我的关注</string>
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHHelpViewController</string>
 			<key>img</key>
 			<string>帮助</string>
 			<key>name</key>
@@ -63,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>url</key>
-			<string></string>
+			<string>ASHFeedbackViewController</string>
 			<key>img</key>
 			<string>意见反馈</string>
 			<key>name</key>

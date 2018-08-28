@@ -61,6 +61,16 @@
 +(void)requestPictureByMethod:(NSString *)method fileURL:(NSString *)fileURL params:(NSString *)params publicParams:(MOMNetPublicParam)publicParams callback:(void(^)(id result,NSError *error))callback;
 
 
+/**
+ *  HTTP POST 微信获取token
+ *
+ *  @param method  方法名
+ *  @param params  参数
+ *  @param succes  成功回调
+ *  @param failure 失败回调
+ */
++(void)checkWXTokenWithCode:(NSString *)code callback:(void(^)(id result,NSError *error))callback;
+
 //+(void)requestByMethod:(NSString *)method params:(NSString *)params callback:(void(^)(id result,NSError *error))callback;
 
 //+(void)requestByMethod:(NSString *)method params:(NSString *)params success:(void(^)(id result))succes failure:(void(^)(NSError *error))failure;

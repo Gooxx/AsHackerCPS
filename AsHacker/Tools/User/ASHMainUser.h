@@ -20,63 +20,19 @@
 +(void)setNick:(NSString *)nick;
 +(NSString *)nick;
 
+//用户简介
++(void)setShowInfo:(NSString *)info;
++(NSString *)showInfo;
+
+////电话号码
++(void)setPhoneNumber:(NSString *)phoneNumber;
++(NSString *)getPhoneNumber;
 
 //头像
 +(void)setHead:(NSString *)head;
 +(NSString *)head;
 
 
-
-//性别
-//+(void)setSex:(MOMUserSex)sex;
-//+(MOMUserSex)sex;
-+(void)setSex:(NSString *)sex;
-+(NSString *)sex;
-//年龄
-+(void)setAge:(NSString *)age;
-+(NSString *)age;
-
-////电话号码
-+(void)setPhoneNumber:(NSString *)phoneNumber;
-+(NSString *)getPhoneNumber;
-
-
-
-+(void)setAreaName:(NSString *)areaName;
-+(NSString *)areaName;
-
-//所在公司
-+(void)setCompany:(NSString *)company;
-+(NSString *)company;
-
-//承担职位
-+(void)setPost:(NSString *)post;
-+(NSString *)post;
-
-
-//已经观看的食品数量
-+(void)setWatchedNum:(NSInteger )num;
-+(NSInteger )watchedNum;
-
-//是否允许非WiFi下载
-+(void)setEnableWIFIDownload:(BOOL )enable;
-+(BOOL)isEnableWIFIDownload;
-
-//已经缓存的视频们
-+(void)setDownloadVideos:(NSArray *)downloadVideos;
-+(NSArray *)downloadVideos;
-
-
-//展示提示吗 首页
-+(void)setShowTip:(BOOL)ifShow;
-+(BOOL)ifShow;
-
-+(void)setShowTip60:(BOOL)ifShow;
-+(BOOL)ifShow60;
-
-//首页流
-+(void)setGIFData:(NSData *)data index:(NSInteger )index;
-+(NSData *)GIFDataindex:(NSInteger)index;
 //session
 +(void)setKey:(NSString *)key;
 +(NSString *)key;
@@ -86,8 +42,70 @@
 +(NSString *)password;
 //本地头像
 +(void)setLocalHead:(NSString *)head;
-
 +(NSString *)localHead;
+
+//bbsCount    动态数量    String
++(void)setBbsCount:(NSString *)count;
++(NSString *)bbsCount;
+
+//followCount    关注数量    String
++(void)setFollowCount:(NSString *)count;
++(NSString *)followCount;
+//fansCount    粉丝数量    String
++(void)setFansCount:(NSString *)count;
++(NSString *)fansCount;
+
+/*
+//性别
+//+(void)setSex:(MOMUserSex)sex;
+//+(MOMUserSex)sex;
++(void)setSex:(NSString *)sex;
++(NSString *)sex;
+//年龄
++(void)setAge:(NSString *)age;
++(NSString *)age;
+ 
+ 
+ 
+ +(void)setAreaName:(NSString *)areaName;
+ +(NSString *)areaName;
+ 
+ //所在公司
+ +(void)setCompany:(NSString *)company;
+ +(NSString *)company;
+ 
+ //承担职位
+ +(void)setPost:(NSString *)post;
+ +(NSString *)post;
+ 
+ 
+ //已经观看的食品数量
+ +(void)setWatchedNum:(NSInteger )num;
+ +(NSInteger )watchedNum;
+ 
+ //是否允许非WiFi下载
+ +(void)setEnableWIFIDownload:(BOOL )enable;
+ +(BOOL)isEnableWIFIDownload;
+ 
+ //已经缓存的视频们
+ +(void)setDownloadVideos:(NSArray *)downloadVideos;
+ +(NSArray *)downloadVideos;
+ 
+ 
+ //展示提示吗 首页
+ +(void)setShowTip:(BOOL)ifShow;
+ +(BOOL)ifShow;
+ 
+ +(void)setShowTip60:(BOOL)ifShow;
+ +(BOOL)ifShow60;
+ 
+ //首页流
+ +(void)setGIFData:(NSData *)data index:(NSInteger )index;
+ +(NSData *)GIFDataindex:(NSInteger)index;
+*/
+
+
+
 
 //用户名
 //+(void)setName:(NSString *)name;

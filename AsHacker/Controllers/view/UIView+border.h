@@ -24,4 +24,9 @@ IB_DESIGNABLE
  * 可视化设置圆角
  */
 @property (nonatomic,assign)IBInspectable CGFloat cornerRadius;
+
+/**
+ *  背景图片
+ */
+@property (nonatomic,copy)IBInspectable NSString *bgImage;
 @end

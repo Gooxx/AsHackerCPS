@@ -35,4 +35,12 @@
     self.layer.cornerRadius = cornerRadius;
     self.layer.masksToBounds = cornerRadius >0;
 }
+
+/**
+ *  背景图片
+ */
+- (void)setBgImage:(NSString *)imageName
+{
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:imageName]];
+}
 @end

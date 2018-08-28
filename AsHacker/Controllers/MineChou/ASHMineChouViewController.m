@@ -195,7 +195,7 @@
         [self.navigationController pushViewController:ctl animated:YES];
     }else if (_selectCellNum == 2) {
         ASHMyAttentionTableViewController *ctl= [self.storyboard instantiateViewControllerWithIdentifier:@"ASHMyAttentionTableViewController"];
-        ctl.dataDic = _observedataArr[indexPath.row];
+//        ctl.dataDic = _observedataArr[indexPath.row];
         [self.navigationController pushViewController:ctl animated:YES];
     }else if (_selectCellNum == 3) {
         ASHMyProjectTableViewController *ctl= [self.storyboard instantiateViewControllerWithIdentifier:@"ASHMyProjectTableViewController"];

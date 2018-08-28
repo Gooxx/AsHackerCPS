@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "config.h"
+#import "ASHMainUser.h"
+
 #import "PListUtil.h"
 #import "UIImageView+ASH.h"
 
-@interface ASHMyTableViewController : UITableViewController
+@interface ASHMyTableViewController : UIViewController
+
 
 @end

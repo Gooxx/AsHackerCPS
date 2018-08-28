@@ -10,6 +10,7 @@
 		4A048C6FB837441E615C4AE7 /* libPods-AsHacker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FF7E080ABFAE0CA99ED572 /* libPods-AsHacker.a */; };
 		C60948941EBC63240082F4B1 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C609488E1EBC63240082F4B1 /* CacheUtil.m */; };
 		C60948961EBC63240082F4B1 /* UIImageView+ASH.m in Sources */ = {isa = PBXBuildFile; fileRef = C60948931EBC63240082F4B1 /* UIImageView+ASH.m */; };
+		C60D4994212FF40E005B24B5 /* ASHLoginVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60D4993212FF40E005B24B5 /* ASHLoginVerifyViewController.m */; };
 		C60F558B1FBD816C004C5F5C /* MOMPasswordUpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60F55891FBD816C004C5F5C /* MOMPasswordUpdateController.m */; };
 		C60F55901FBD9149004C5F5C /* MOMSecurityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C60F558F1FBD9149004C5F5C /* MOMSecurityHelper.m */; };
 		C60FA4641EF901F300FABCFD /* AshShareUM.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FA4631EF901F300FABCFD /* AshShareUM.m */; };
@@ -26,7 +27,6 @@
 		C615085F1F73F8650031A31E /* ASHMySupportDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C615085D1F73F8650031A31E /* ASHMySupportDetailTableViewCell.xib */; };
 		C61508621F73FA3B0031A31E /* ASHMyJoinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61508611F73FA3B0031A31E /* ASHMyJoinTableViewController.m */; };
 		C61508651F73FA570031A31E /* ASHMySupportTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61508641F73FA570031A31E /* ASHMySupportTableViewController.m */; };
-		C61508681F73FA800031A31E /* ASHMyAttentionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61508671F73FA800031A31E /* ASHMyAttentionTableViewController.m */; };
 		C615086B1F73FA9A0031A31E /* ASHMyProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C615086A1F73FA9A0031A31E /* ASHMyProjectTableViewController.m */; };
 		C615E9851FAF381000246E61 /* ASHSupportPrePayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C615E9841FAF381000246E61 /* ASHSupportPrePayTableViewController.m */; };
 		C61C73AE1F6BAF9B00C51D65 /* ASHOrganizationDetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61C73AD1F6BAF9B00C51D65 /* ASHOrganizationDetalViewController.m */; };
@@ -56,6 +56,12 @@
 		C621463E20B6950C00D241D4 /* MyMenus.plist in Resources */ = {isa = PBXBuildFile; fileRef = C621463D20B6950C00D241D4 /* MyMenus.plist */; };
 		C6242E7E1F8CFA0C00794F26 /* HcCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = C6242E7D1F8CFA0C00794F26 /* HcCustomKeyboard.m */; };
 		C6242E801F8D08BE00794F26 /* HcCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6242E7F1F8D08BE00794F26 /* HcCustomKeyboard.xib */; };
+		C62BC86520EDFAA50039D675 /* ASHVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC86420EDFAA50039D675 /* ASHVideoModel.m */; };
+		C62BC86820EDFB4D0039D675 /* ASHCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC86720EDFB4D0039D675 /* ASHCarModel.m */; };
+		C62BC86B20EDFBE30039D675 /* ASHBandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC86A20EDFBE30039D675 /* ASHBandModel.m */; };
+		C62BC86E20EDFDB30039D675 /* ASHCarBBSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC86D20EDFDB30039D675 /* ASHCarBBSModel.m */; };
+		C62BC87120EDFE240039D675 /* ASHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC87020EDFE240039D675 /* ASHUserModel.m */; };
+		C62BC87420EDFEE90039D675 /* ASHMissionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62BC87320EDFEE90039D675 /* ASHMissionModel.m */; };
 		C62D930D1E9640AA00784271 /* MoviePlayer_Full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C62D92FE1E9640AA00784271 /* MoviePlayer_Full@2x.png */; };
 		C62D930E1E9640AA00784271 /* MoviePlayer_Play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C62D92FF1E9640AA00784271 /* MoviePlayer_Play@2x.png */; };
 		C62D930F1E9640AA00784271 /* MoviePlayer_Play_Big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C62D93001E9640AA00784271 /* MoviePlayer_Play_Big@2x.png */; };
@@ -80,6 +86,7 @@
 		C63144F41E9CB441002FE8A9 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63144EF1E9CB441002FE8A9 /* UIView+ViewController.m */; };
 		C63144F91E9E21AA002FE8A9 /* ASHCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C63144F71E9E21AA002FE8A9 /* ASHCommentTableViewCell.m */; };
 		C63144FA1E9E21AA002FE8A9 /* ASHCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63144F81E9E21AA002FE8A9 /* ASHCommentTableViewCell.xib */; };
+		C6366DC020EDF605001769B4 /* ASH1PCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6366DBF20EDF605001769B4 /* ASH1PCell.m */; };
 		C63780831FBD37C900985C8A /* UIImage+ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C63780761FBD37C900985C8A /* UIImage+ImageSize.m */; };
 		C63780841FBD37C900985C8A /* SGQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C63780771FBD37C900985C8A /* SGQRCode.bundle */; };
 		C63780851FBD37C900985C8A /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C637807A1FBD37C900985C8A /* SGQRCodeAlbumManager.m */; };
@@ -97,7 +104,22 @@
 		C6504C241EE688610040C6B0 /* ASHMineReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6504C231EE688610040C6B0 /* ASHMineReplyViewController.m */; };
 		C6504C281EE92F820040C6B0 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6504C271EE92F820040C6B0 /* CityData.plist */; };
 		C6594ABE1FADC0740076153A /* ASHTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6594ABD1FADC0740076153A /* ASHTextLabel.m */; };
+		C664954420E3262C007DEEC7 /* ASHBBSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C664954320E3262C007DEEC7 /* ASHBBSModel.m */; };
+		C664954820E32A96007DEEC7 /* ASHBBS1PCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C664954720E32A96007DEEC7 /* ASHBBS1PCell.m */; };
+		C664954B20E32AB4007DEEC7 /* ASH3PCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C664954A20E32AB4007DEEC7 /* ASH3PCell.m */; };
+		C664954E20E32AC5007DEEC7 /* ASH1VCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C664954D20E32AC4007DEEC7 /* ASH1VCell.m */; };
+		C664955120E33A98007DEEC7 /* ASHNewsTWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C664955020E33A98007DEEC7 /* ASHNewsTWDetailViewController.m */; };
+		C664955420E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C664955320E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.m */; };
 		C66D6CA81EA612060003BADE /* ASHToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C66D6CA71EA612060003BADE /* ASHToolbar.m */; };
+		C66DAB5F20C11767002ABE4C /* ASHMyCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB5E20C11767002ABE4C /* ASHMyCollectTableViewController.m */; };
+		C66DAB6220C117BB002ABE4C /* ASHMyAttentionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB6120C117BB002ABE4C /* ASHMyAttentionTableViewController.m */; };
+		C66DAB6520C117FD002ABE4C /* ASHMyPublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB6420C117FD002ABE4C /* ASHMyPublicTableViewController.m */; };
+		C66DAB6820C1182E002ABE4C /* ASHMyMissionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB6720C1182E002ABE4C /* ASHMyMissionTableViewController.m */; };
+		C66DAB6B20C118A0002ABE4C /* ASHBIZActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB6A20C118A0002ABE4C /* ASHBIZActivityTableViewController.m */; };
+		C66DAB6E20C12D67002ABE4C /* ASHHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB6D20C12D67002ABE4C /* ASHHelpViewController.m */; };
+		C66DAB7120C12D96002ABE4C /* ASHFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB7020C12D96002ABE4C /* ASHFeedbackViewController.m */; };
+		C66DAB7420C130FD002ABE4C /* ASHCPSServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB7320C130FD002ABE4C /* ASHCPSServiceViewController.m */; };
+		C66DAB7720D25985002ABE4C /* ASHLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C66DAB7620D25985002ABE4C /* ASHLogoModel.m */; };
 		C671A5501F5AA71F002E3A46 /* ASHFirstTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C671A54F1F5AA71F002E3A46 /* ASHFirstTableViewController.m */; };
 		C671A5581F5D5FD0002E3A46 /* ASHMineChouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C671A5571F5D5FD0002E3A46 /* ASHMineChouViewController.m */; };
 		C6797F8E1ED4455000525326 /* JSVideoController-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6797F891ED4455000525326 /* JSVideoController-Info.plist */; };
@@ -115,6 +137,7 @@
 		C68692F91ECED758005A1795 /* ASHAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68692F81ECED758005A1795 /* ASHAlertView.xib */; };
 		C68785211ED1862D00DE4738 /* MOMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68785201ED1862C00DE4738 /* MOMProgressHUD.m */; };
 		C68785241ED18FE100DE4738 /* SZKAlterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C68785231ED18FE100DE4738 /* SZKAlterView.m */; };
+		C689497B21096A7B00996A55 /* ASHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C689497A21096A7B00996A55 /* ASHLoginViewController.m */; };
 		C6906D241F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6906D221F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.m */; };
 		C6906D251F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6906D231F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.xib */; };
 		C6906D351F74D4CC00C4F56F /* UIImageView+border.m in Sources */ = {isa = PBXBuildFile; fileRef = C6906D341F74D4CC00C4F56F /* UIImageView+border.m */; };
@@ -144,6 +167,8 @@
 		C6CC0D9E1ECD48CC00521574 /* AdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC0D9D1ECD48CC00521574 /* AdScrollView.m */; };
 		C6CC0DAD1ECD4A5E00521574 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC0DAC1ECD4A5E00521574 /* TLCityGroupCell.m */; };
 		C6CC0DAF1ECD4AA400521574 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CC0DAE1ECD4AA400521574 /* DatePickerView.xib */; };
+		C6D1B2C12133A02600880D8E /* ASHFWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D1B2C02133A02600880D8E /* ASHFWTableViewController.m */; };
+		C6D1B2C42133A74900880D8E /* ASHFWMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D1B2C32133A74900880D8E /* ASHFWMapViewController.m */; };
 		C6D706A91EC16E7A00873078 /* ASHMineUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D706A81EC16E7A00873078 /* ASHMineUserInfoController.m */; };
 		C6D706AC1EC1976A00873078 /* ASHMineUserEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D706AB1EC1976A00873078 /* ASHMineUserEditController.m */; };
 		C6D7070B1EC19EA900873078 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D707001EC19EA900873078 /* TLCity.m */; };
@@ -198,6 +223,8 @@
 		C609488E1EBC63240082F4B1 /* CacheUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUtil.m; sourceTree = "<group>"; };
 		C60948921EBC63240082F4B1 /* UIImageView+ASH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ASH.h"; sourceTree = "<group>"; };
 		C60948931EBC63240082F4B1 /* UIImageView+ASH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ASH.m"; sourceTree = "<group>"; };
+		C60D4992212FF40E005B24B5 /* ASHLoginVerifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHLoginVerifyViewController.h; sourceTree = "<group>"; };
+		C60D4993212FF40E005B24B5 /* ASHLoginVerifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHLoginVerifyViewController.m; sourceTree = "<group>"; };
 		C60F55881FBD816C004C5F5C /* MOMPasswordUpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMPasswordUpdateController.h; sourceTree = "<group>"; };
 		C60F55891FBD816C004C5F5C /* MOMPasswordUpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMPasswordUpdateController.m; sourceTree = "<group>"; };
 		C60F558E1FBD9149004C5F5C /* MOMSecurityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMSecurityHelper.h; sourceTree = "<group>"; };
@@ -225,8 +252,6 @@
 		C61508611F73FA3B0031A31E /* ASHMyJoinTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHMyJoinTableViewController.m; path = Mine/ASHMyJoinTableViewController.m; sourceTree = "<group>"; };
 		C61508631F73FA570031A31E /* ASHMySupportTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHMySupportTableViewController.h; path = Mine/ASHMySupportTableViewController.h; sourceTree = "<group>"; };
 		C61508641F73FA570031A31E /* ASHMySupportTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHMySupportTableViewController.m; path = Mine/ASHMySupportTableViewController.m; sourceTree = "<group>"; };
-		C61508661F73FA800031A31E /* ASHMyAttentionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHMyAttentionTableViewController.h; path = Mine/ASHMyAttentionTableViewController.h; sourceTree = "<group>"; };
-		C61508671F73FA800031A31E /* ASHMyAttentionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHMyAttentionTableViewController.m; path = Mine/ASHMyAttentionTableViewController.m; sourceTree = "<group>"; };
 		C61508691F73FA9A0031A31E /* ASHMyProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHMyProjectTableViewController.h; path = Mine/ASHMyProjectTableViewController.h; sourceTree = "<group>"; };
 		C615086A1F73FA9A0031A31E /* ASHMyProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHMyProjectTableViewController.m; path = Mine/ASHMyProjectTableViewController.m; sourceTree = "<group>"; };
 		C615E9831FAF381000246E61 /* ASHSupportPrePayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHSupportPrePayTableViewController.h; path = First/ASHSupportPrePayTableViewController.h; sourceTree = "<group>"; };
@@ -280,6 +305,18 @@
 		C6242E7C1F8CFA0C00794F26 /* HcCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HcCustomKeyboard.h; sourceTree = "<group>"; };
 		C6242E7D1F8CFA0C00794F26 /* HcCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcCustomKeyboard.m; sourceTree = "<group>"; };
 		C6242E7F1F8D08BE00794F26 /* HcCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HcCustomKeyboard.xib; sourceTree = "<group>"; };
+		C62BC86320EDFAA50039D675 /* ASHVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHVideoModel.h; sourceTree = "<group>"; };
+		C62BC86420EDFAA50039D675 /* ASHVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHVideoModel.m; sourceTree = "<group>"; };
+		C62BC86620EDFB4D0039D675 /* ASHCarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHCarModel.h; sourceTree = "<group>"; };
+		C62BC86720EDFB4D0039D675 /* ASHCarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHCarModel.m; sourceTree = "<group>"; };
+		C62BC86920EDFBE30039D675 /* ASHBandModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHBandModel.h; sourceTree = "<group>"; };
+		C62BC86A20EDFBE30039D675 /* ASHBandModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHBandModel.m; sourceTree = "<group>"; };
+		C62BC86C20EDFDB30039D675 /* ASHCarBBSModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHCarBBSModel.h; sourceTree = "<group>"; };
+		C62BC86D20EDFDB30039D675 /* ASHCarBBSModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHCarBBSModel.m; sourceTree = "<group>"; };
+		C62BC86F20EDFE240039D675 /* ASHUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHUserModel.h; sourceTree = "<group>"; };
+		C62BC87020EDFE240039D675 /* ASHUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHUserModel.m; sourceTree = "<group>"; };
+		C62BC87220EDFEE90039D675 /* ASHMissionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHMissionModel.h; sourceTree = "<group>"; };
+		C62BC87320EDFEE90039D675 /* ASHMissionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHMissionModel.m; sourceTree = "<group>"; };
 		C62D92FE1E9640AA00784271 /* MoviePlayer_Full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoviePlayer_Full@2x.png"; sourceTree = "<group>"; };
 		C62D92FF1E9640AA00784271 /* MoviePlayer_Play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoviePlayer_Play@2x.png"; sourceTree = "<group>"; };
 		C62D93001E9640AA00784271 /* MoviePlayer_Play_Big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoviePlayer_Play_Big@2x.png"; sourceTree = "<group>"; };
@@ -319,6 +356,8 @@
 		C63144F61E9E21AA002FE8A9 /* ASHCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHCommentTableViewCell.h; sourceTree = "<group>"; };
 		C63144F71E9E21AA002FE8A9 /* ASHCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHCommentTableViewCell.m; sourceTree = "<group>"; };
 		C63144F81E9E21AA002FE8A9 /* ASHCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASHCommentTableViewCell.xib; sourceTree = "<group>"; };
+		C6366DBE20EDF605001769B4 /* ASH1PCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASH1PCell.h; path = AsHacker/Common/views/BBS/ASH1PCell.h; sourceTree = SOURCE_ROOT; };
+		C6366DBF20EDF605001769B4 /* ASH1PCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ASH1PCell.m; path = AsHacker/Common/views/BBS/ASH1PCell.m; sourceTree = SOURCE_ROOT; };
 		C63780751FBD37C900985C8A /* UIImage+ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageSize.h"; sourceTree = "<group>"; };
 		C63780761FBD37C900985C8A /* UIImage+ImageSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageSize.m"; sourceTree = "<group>"; };
 		C63780771FBD37C900985C8A /* SGQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SGQRCode.bundle; sourceTree = "<group>"; };
@@ -353,8 +392,38 @@
 		C6594ABC1FADC0740076153A /* ASHTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHTextLabel.h; path = view/ASHTextLabel.h; sourceTree = "<group>"; };
 		C6594ABD1FADC0740076153A /* ASHTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHTextLabel.m; path = view/ASHTextLabel.m; sourceTree = "<group>"; };
 		C65CA4F51E83A1DA00B1238C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C664954220E3262C007DEEC7 /* ASHBBSModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHBBSModel.h; sourceTree = "<group>"; };
+		C664954320E3262C007DEEC7 /* ASHBBSModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHBBSModel.m; sourceTree = "<group>"; };
+		C664954620E32A96007DEEC7 /* ASHBBS1PCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASHBBS1PCell.h; path = AsHacker/Common/views/BBS/ASHBBS1PCell.h; sourceTree = SOURCE_ROOT; };
+		C664954720E32A96007DEEC7 /* ASHBBS1PCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ASHBBS1PCell.m; path = AsHacker/Common/views/BBS/ASHBBS1PCell.m; sourceTree = SOURCE_ROOT; };
+		C664954920E32AB4007DEEC7 /* ASH3PCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASH3PCell.h; sourceTree = "<group>"; };
+		C664954A20E32AB4007DEEC7 /* ASH3PCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASH3PCell.m; sourceTree = "<group>"; };
+		C664954C20E32AC4007DEEC7 /* ASH1VCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASH1VCell.h; sourceTree = "<group>"; };
+		C664954D20E32AC4007DEEC7 /* ASH1VCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASH1VCell.m; sourceTree = "<group>"; };
+		C664954F20E33A98007DEEC7 /* ASHNewsTWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHNewsTWDetailViewController.h; sourceTree = "<group>"; };
+		C664955020E33A98007DEEC7 /* ASHNewsTWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHNewsTWDetailViewController.m; sourceTree = "<group>"; };
+		C664955220E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHNewsVideoDetailTableViewController.h; sourceTree = "<group>"; };
+		C664955320E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHNewsVideoDetailTableViewController.m; sourceTree = "<group>"; };
 		C66D6CA61EA612060003BADE /* ASHToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHToolbar.h; sourceTree = "<group>"; };
 		C66D6CA71EA612060003BADE /* ASHToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHToolbar.m; sourceTree = "<group>"; };
+		C66DAB5D20C11767002ABE4C /* ASHMyCollectTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHMyCollectTableViewController.h; sourceTree = "<group>"; };
+		C66DAB5E20C11767002ABE4C /* ASHMyCollectTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHMyCollectTableViewController.m; sourceTree = "<group>"; };
+		C66DAB6020C117BB002ABE4C /* ASHMyAttentionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHMyAttentionTableViewController.h; sourceTree = "<group>"; };
+		C66DAB6120C117BB002ABE4C /* ASHMyAttentionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHMyAttentionTableViewController.m; sourceTree = "<group>"; };
+		C66DAB6320C117FD002ABE4C /* ASHMyPublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHMyPublicTableViewController.h; sourceTree = "<group>"; };
+		C66DAB6420C117FD002ABE4C /* ASHMyPublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHMyPublicTableViewController.m; sourceTree = "<group>"; };
+		C66DAB6620C1182E002ABE4C /* ASHMyMissionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHMyMissionTableViewController.h; sourceTree = "<group>"; };
+		C66DAB6720C1182E002ABE4C /* ASHMyMissionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHMyMissionTableViewController.m; sourceTree = "<group>"; };
+		C66DAB6920C118A0002ABE4C /* ASHBIZActivityTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHBIZActivityTableViewController.h; sourceTree = "<group>"; };
+		C66DAB6A20C118A0002ABE4C /* ASHBIZActivityTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHBIZActivityTableViewController.m; sourceTree = "<group>"; };
+		C66DAB6C20C12D67002ABE4C /* ASHHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHHelpViewController.h; sourceTree = "<group>"; };
+		C66DAB6D20C12D67002ABE4C /* ASHHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHHelpViewController.m; sourceTree = "<group>"; };
+		C66DAB6F20C12D96002ABE4C /* ASHFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHFeedbackViewController.h; sourceTree = "<group>"; };
+		C66DAB7020C12D96002ABE4C /* ASHFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHFeedbackViewController.m; sourceTree = "<group>"; };
+		C66DAB7220C130FD002ABE4C /* ASHCPSServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHCPSServiceViewController.h; sourceTree = "<group>"; };
+		C66DAB7320C130FD002ABE4C /* ASHCPSServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHCPSServiceViewController.m; sourceTree = "<group>"; };
+		C66DAB7520D25985002ABE4C /* ASHLogoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASHLogoModel.h; path = AsHacker/Common/Model/ASHLogoModel.h; sourceTree = SOURCE_ROOT; };
+		C66DAB7620D25985002ABE4C /* ASHLogoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ASHLogoModel.m; path = AsHacker/Common/Model/ASHLogoModel.m; sourceTree = SOURCE_ROOT; };
 		C671A54E1F5AA71F002E3A46 /* ASHFirstTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHFirstTableViewController.h; sourceTree = "<group>"; };
 		C671A54F1F5AA71F002E3A46 /* ASHFirstTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHFirstTableViewController.m; sourceTree = "<group>"; };
 		C671A5561F5D5FD0002E3A46 /* ASHMineChouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHMineChouViewController.h; path = MineChou/ASHMineChouViewController.h; sourceTree = "<group>"; };
@@ -387,6 +456,8 @@
 		C68785201ED1862C00DE4738 /* MOMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMProgressHUD.m; sourceTree = "<group>"; };
 		C68785221ED18FE100DE4738 /* SZKAlterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZKAlterView.h; sourceTree = "<group>"; };
 		C68785231ED18FE100DE4738 /* SZKAlterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZKAlterView.m; sourceTree = "<group>"; };
+		C689497921096A7B00996A55 /* ASHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHLoginViewController.h; sourceTree = "<group>"; };
+		C689497A21096A7B00996A55 /* ASHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHLoginViewController.m; sourceTree = "<group>"; };
 		C6906D211F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHPublisherMainTableViewCell.h; path = First/view/ASHPublisherMainTableViewCell.h; sourceTree = "<group>"; };
 		C6906D221F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHPublisherMainTableViewCell.m; path = First/view/ASHPublisherMainTableViewCell.m; sourceTree = "<group>"; };
 		C6906D231F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASHPublisherMainTableViewCell.xib; path = First/view/ASHPublisherMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -442,6 +513,10 @@
 		C6CC0D9D1ECD48CC00521574 /* AdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdScrollView.m; sourceTree = "<group>"; };
 		C6CC0DAC1ECD4A5E00521574 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
 		C6CC0DAE1ECD4AA400521574 /* DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		C6D1B2BF2133A02600880D8E /* ASHFWTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHFWTableViewController.h; sourceTree = "<group>"; };
+		C6D1B2C02133A02600880D8E /* ASHFWTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHFWTableViewController.m; sourceTree = "<group>"; };
+		C6D1B2C22133A74800880D8E /* ASHFWMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASHFWMapViewController.h; sourceTree = "<group>"; };
+		C6D1B2C32133A74900880D8E /* ASHFWMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASHFWMapViewController.m; sourceTree = "<group>"; };
 		C6D706A71EC16E7A00873078 /* ASHMineUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHMineUserInfoController.h; sourceTree = "<group>"; };
 		C6D706A81EC16E7A00873078 /* ASHMineUserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHMineUserInfoController.m; sourceTree = "<group>"; };
 		C6D706AA1EC1976A00873078 /* ASHMineUserEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHMineUserEditController.h; sourceTree = "<group>"; };
@@ -712,6 +787,22 @@
 				C621462620B55CC300D241D4 /* CarBrandModel.m */,
 				C621462220B55B9E00D241D4 /* ASHCarInfoModel.h */,
 				C621462320B55B9E00D241D4 /* ASHCarInfoModel.m */,
+				C66DAB7520D25985002ABE4C /* ASHLogoModel.h */,
+				C66DAB7620D25985002ABE4C /* ASHLogoModel.m */,
+				C664954220E3262C007DEEC7 /* ASHBBSModel.h */,
+				C664954320E3262C007DEEC7 /* ASHBBSModel.m */,
+				C62BC86320EDFAA50039D675 /* ASHVideoModel.h */,
+				C62BC86420EDFAA50039D675 /* ASHVideoModel.m */,
+				C62BC86620EDFB4D0039D675 /* ASHCarModel.h */,
+				C62BC86720EDFB4D0039D675 /* ASHCarModel.m */,
+				C62BC86920EDFBE30039D675 /* ASHBandModel.h */,
+				C62BC86A20EDFBE30039D675 /* ASHBandModel.m */,
+				C62BC86C20EDFDB30039D675 /* ASHCarBBSModel.h */,
+				C62BC86D20EDFDB30039D675 /* ASHCarBBSModel.m */,
+				C62BC86F20EDFE240039D675 /* ASHUserModel.h */,
+				C62BC87020EDFE240039D675 /* ASHUserModel.m */,
+				C62BC87220EDFEE90039D675 /* ASHMissionModel.h */,
+				C62BC87320EDFEE90039D675 /* ASHMissionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -723,6 +814,24 @@
 				C621462A20B575FA00D241D4 /* ASHMyTableViewController.h */,
 				C621462B20B575FA00D241D4 /* ASHMyTableViewController.m */,
 				C621463D20B6950C00D241D4 /* MyMenus.plist */,
+				C66DAB5D20C11767002ABE4C /* ASHMyCollectTableViewController.h */,
+				C66DAB5E20C11767002ABE4C /* ASHMyCollectTableViewController.m */,
+				C66DAB6020C117BB002ABE4C /* ASHMyAttentionTableViewController.h */,
+				C66DAB6120C117BB002ABE4C /* ASHMyAttentionTableViewController.m */,
+				C66DAB6320C117FD002ABE4C /* ASHMyPublicTableViewController.h */,
+				C66DAB6420C117FD002ABE4C /* ASHMyPublicTableViewController.m */,
+				C66DAB6620C1182E002ABE4C /* ASHMyMissionTableViewController.h */,
+				C66DAB6720C1182E002ABE4C /* ASHMyMissionTableViewController.m */,
+				C66DAB6920C118A0002ABE4C /* ASHBIZActivityTableViewController.h */,
+				C66DAB6A20C118A0002ABE4C /* ASHBIZActivityTableViewController.m */,
+				C66DAB6C20C12D67002ABE4C /* ASHHelpViewController.h */,
+				C66DAB6D20C12D67002ABE4C /* ASHHelpViewController.m */,
+				C66DAB6F20C12D96002ABE4C /* ASHFeedbackViewController.h */,
+				C66DAB7020C12D96002ABE4C /* ASHFeedbackViewController.m */,
+				C66DAB7220C130FD002ABE4C /* ASHCPSServiceViewController.h */,
+				C66DAB7320C130FD002ABE4C /* ASHCPSServiceViewController.m */,
+				C689497921096A7B00996A55 /* ASHLoginViewController.h */,
+				C689497A21096A7B00996A55 /* ASHLoginViewController.m */,
 			);
 			path = cpsMy;
 			sourceTree = "<group>";
@@ -730,6 +839,8 @@
 		C621462920B575DA00D241D4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C60D4992212FF40E005B24B5 /* ASHLoginVerifyViewController.h */,
+				C60D4993212FF40E005B24B5 /* ASHLoginVerifyViewController.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -824,6 +935,7 @@
 		C62D931C1E97237500784271 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				C664954520E32A5B007DEEC7 /* BBS */,
 				C68692EF1ECEC328005A1795 /* alert */,
 				C6825AE31EB5E2F400A7BE10 /* ImageView */,
 				C66D6CA51EA611E90003BADE /* Toolbar */,
@@ -959,6 +1071,21 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
+		C664954520E32A5B007DEEC7 /* BBS */ = {
+			isa = PBXGroup;
+			children = (
+				C664954620E32A96007DEEC7 /* ASHBBS1PCell.h */,
+				C664954720E32A96007DEEC7 /* ASHBBS1PCell.m */,
+				C664954920E32AB4007DEEC7 /* ASH3PCell.h */,
+				C664954A20E32AB4007DEEC7 /* ASH3PCell.m */,
+				C664954C20E32AC4007DEEC7 /* ASH1VCell.h */,
+				C664954D20E32AC4007DEEC7 /* ASH1VCell.m */,
+				C6366DBE20EDF605001769B4 /* ASH1PCell.h */,
+				C6366DBF20EDF605001769B4 /* ASH1PCell.m */,
+			);
+			path = BBS;
+			sourceTree = "<group>";
+		};
 		C66D6CA51EA611E90003BADE /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,8 +1124,6 @@
 				C61508611F73FA3B0031A31E /* ASHMyJoinTableViewController.m */,
 				C61508631F73FA570031A31E /* ASHMySupportTableViewController.h */,
 				C61508641F73FA570031A31E /* ASHMySupportTableViewController.m */,
-				C61508661F73FA800031A31E /* ASHMyAttentionTableViewController.h */,
-				C61508671F73FA800031A31E /* ASHMyAttentionTableViewController.m */,
 				C61508691F73FA9A0031A31E /* ASHMyProjectTableViewController.h */,
 				C615086A1F73FA9A0031A31E /* ASHMyProjectTableViewController.m */,
 				C6B292DF1ED17E2D009E7C5D /* ASHMineSettingTableViewController.h */,
@@ -1016,6 +1141,10 @@
 				C6906D361F74ED2500C4F56F /* ASHFirstDetailTableViewController.h */,
 				C6906D371F74ED2500C4F56F /* ASHFirstDetailTableViewController.m */,
 				C672AC2920AD2DC000ADABC1 /* view */,
+				C664954F20E33A98007DEEC7 /* ASHNewsTWDetailViewController.h */,
+				C664955020E33A98007DEEC7 /* ASHNewsTWDetailViewController.m */,
+				C664955220E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.h */,
+				C664955320E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.m */,
 			);
 			path = cpsMain;
 			sourceTree = "<group>";
@@ -1244,6 +1373,7 @@
 		C6B8604B1E94C1AD00FE8795 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C6D1B2BE21339F3300880D8E /* cpsFW */,
 				C621462820B575C400D241D4 /* cpsMy */,
 				C621461220B41A3400D241D4 /* cpsGC */,
 				C621460D20B402D600D241D4 /* cpsSSP */,
@@ -1265,6 +1395,17 @@
 				C6906D431F78F90C00C4F56F /* ASHTabBarController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C6D1B2BE21339F3300880D8E /* cpsFW */ = {
+			isa = PBXGroup;
+			children = (
+				C6D1B2BF2133A02600880D8E /* ASHFWTableViewController.h */,
+				C6D1B2C02133A02600880D8E /* ASHFWTableViewController.m */,
+				C6D1B2C22133A74800880D8E /* ASHFWMapViewController.h */,
+				C6D1B2C32133A74900880D8E /* ASHFWMapViewController.m */,
+			);
+			path = cpsFW;
 			sourceTree = "<group>";
 		};
 		C6D706FD1EC19EA900873078 /* TLCityPicker */ = {
@@ -1477,7 +1618,7 @@
 					C6A9B6C91E7F6C3A002417E6 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2BKRKGYB4N;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C6A9B6E51E7F6C3A002417E6 = {
 						CreatedOnToolsVersion = 8.1;
@@ -1623,16 +1764,18 @@
 				C6827CB31F91F8FB00B16790 /* UILabel+border.m in Sources */,
 				C6D7070F1EC19EA900873078 /* TLCityPickerSearchResultController.m in Sources */,
 				C6242E7E1F8CFA0C00794F26 /* HcCustomKeyboard.m in Sources */,
+				C66DAB6B20C118A0002ABE4C /* ASHBIZActivityTableViewController.m in Sources */,
 				C61508541F73F6840031A31E /* ASHMineDetailTableViewCell.m in Sources */,
 				C63780961FBD39F500985C8A /* ScanSuccessJumpVC.m in Sources */,
 				C61508591F73F7D40031A31E /* ASHMyProjectDetailTableViewCell.m in Sources */,
 				C6B8604E1E94C1F100FE8795 /* ASHMainViewController.m in Sources */,
 				C615085E1F73F8650031A31E /* ASHMySupportDetailTableViewCell.m in Sources */,
+				C6D1B2C42133A74900880D8E /* ASHFWMapViewController.m in Sources */,
 				C621463020B6905200D241D4 /* PListUtil.m in Sources */,
 				C621462720B55CC400D241D4 /* CarBrandModel.m in Sources */,
+				C664954820E32A96007DEEC7 /* ASHBBS1PCell.m in Sources */,
 				C6CC0DAD1ECD4A5E00521574 /* TLCityGroupCell.m in Sources */,
 				C68785211ED1862D00DE4738 /* MOMProgressHUD.m in Sources */,
-				C61508681F73FA800031A31E /* ASHMyAttentionTableViewController.m in Sources */,
 				C6D706A91EC16E7A00873078 /* ASHMineUserInfoController.m in Sources */,
 				C6797F8F1ED4455000525326 /* JSVideoFunctions.m in Sources */,
 				C63144F11E9CB441002FE8A9 /* MLMSegmentManager.m in Sources */,
@@ -1640,6 +1783,7 @@
 				C63144F01E9CB441002FE8A9 /* MLMSegmentHead.m in Sources */,
 				C62D93181E9640AA00784271 /* UIDevice+JWDevice.m in Sources */,
 				C6906D411F779F9100C4F56F /* ASHMainTableViewCell.m in Sources */,
+				C66DAB7420C130FD002ABE4C /* ASHCPSServiceViewController.m in Sources */,
 				C621463820B6909A00D241D4 /* Reachability.m in Sources */,
 				C621461620B41A7D00D241D4 /* ASHGCViewController.m in Sources */,
 				C60F558B1FBD816C004C5F5C /* MOMPasswordUpdateController.m in Sources */,
@@ -1651,11 +1795,13 @@
 				C68692F31ECEC392005A1795 /* ASHAlertViewController.m in Sources */,
 				C6594ABE1FADC0740076153A /* ASHTextLabel.m in Sources */,
 				C6825AE61EB5E31C00A7BE10 /* ASHOImageView.m in Sources */,
+				C664954E20E32AC5007DEEC7 /* ASH1VCell.m in Sources */,
 				C62D93371E9791BB00784271 /* MOMScrollView.m in Sources */,
 				C60F55901FBD9149004C5F5C /* MOMSecurityHelper.m in Sources */,
 				C61FC3F41F860EF3002A2B33 /* ASHFIrstSupport09TableViewCell.m in Sources */,
 				C63780971FBD39F500985C8A /* SGQRCodeScanningVC.m in Sources */,
 				C6CC0D9E1ECD48CC00521574 /* AdScrollView.m in Sources */,
+				C6D1B2C12133A02600880D8E /* ASHFWTableViewController.m in Sources */,
 				C6A9B6D81E7F6C3A002417E6 /* SecondViewController.m in Sources */,
 				C6797F901ED4455000525326 /* JSVideoViewController.m in Sources */,
 				C63780881FBD37C900985C8A /* SGQRCodeScanManager.m in Sources */,
@@ -1664,6 +1810,8 @@
 				C671A5501F5AA71F002E3A46 /* ASHFirstTableViewController.m in Sources */,
 				C6906D3C1F74F5E200C4F56F /* ASHFirstDetailTableViewCell.m in Sources */,
 				C6AD2D1A1FAB546400DF0DAB /* ASHMainCollectionViewCell.m in Sources */,
+				C66DAB5F20C11767002ABE4C /* ASHMyCollectTableViewController.m in Sources */,
+				C60D4994212FF40E005B24B5 /* ASHLoginVerifyViewController.m in Sources */,
 				C61508501F73F1170031A31E /* ASHSupportTableViewController.m in Sources */,
 				C6D7070B1EC19EA900873078 /* TLCity.m in Sources */,
 				C61FC3E51F7E494A002A2B33 /* TYCyclePagerTransformLayout.m in Sources */,
@@ -1689,35 +1837,48 @@
 				C66D6CA81EA612060003BADE /* ASHToolbar.m in Sources */,
 				C62D93331E97912F00784271 /* ASHActivityTableViewCell.m in Sources */,
 				C60FA4641EF901F300FABCFD /* AshShareUM.m in Sources */,
+				C6366DC020EDF605001769B4 /* ASH1PCell.m in Sources */,
 				C61FC3E61F7E494A002A2B33 /* TYCyclePagerView.m in Sources */,
+				C62BC87420EDFEE90039D675 /* ASHMissionModel.m in Sources */,
+				C62BC86820EDFB4D0039D675 /* ASHCarModel.m in Sources */,
 				C60948941EBC63240082F4B1 /* CacheUtil.m in Sources */,
 				C62D93301E97904F00784271 /* ASHActivityTableViewController.m in Sources */,
 				C62D93161E9640AA00784271 /* JWPlayer.m in Sources */,
 				C62D93151E9640AA00784271 /* JWFullViewController.m in Sources */,
+				C664954420E3262C007DEEC7 /* ASHBBSModel.m in Sources */,
 				C621463420B6906900D241D4 /* MOMBluetoothHelper.m in Sources */,
 				C6906D441F78F90C00C4F56F /* ASHTabBarController.m in Sources */,
 				C61FC3EC1F7E4A6C002A2B33 /* ASHOrganizationBannerCell.m in Sources */,
+				C66DAB6E20C12D67002ABE4C /* ASHHelpViewController.m in Sources */,
 				C63144F91E9E21AA002FE8A9 /* ASHCommentTableViewCell.m in Sources */,
 				C6A451FF1EEA8AD300A368AC /* ASHNavigationController.m in Sources */,
+				C66DAB6820C1182E002ABE4C /* ASHMyMissionTableViewController.m in Sources */,
 				C69F272B1FB2DC4B0095DCC6 /* ASHFirstJoinSuccessViewController.m in Sources */,
 				C6B292E11ED17E2D009E7C5D /* ASHMineSettingTableViewController.m in Sources */,
+				C66DAB6520C117FD002ABE4C /* ASHMyPublicTableViewController.m in Sources */,
 				C6D706AC1EC1976A00873078 /* ASHMineUserEditController.m in Sources */,
 				C63144F41E9CB441002FE8A9 /* UIView+ViewController.m in Sources */,
 				C6A9B6D21E7F6C3A002417E6 /* AppDelegate.m in Sources */,
 				C63144F31E9CB441002FE8A9 /* UIView+EasyFrame.m in Sources */,
 				C6391F741F8A2B4A00DD05A7 /* UIButton+border.m in Sources */,
+				C664954B20E32AB4007DEEC7 /* ASH3PCell.m in Sources */,
 				C6D7070D1EC19EA900873078 /* TLCityHeaderView.m in Sources */,
+				C66DAB6220C117BB002ABE4C /* ASHMyAttentionTableViewController.m in Sources */,
+				C62BC86B20EDFBE30039D675 /* ASHBandModel.m in Sources */,
 				C6A9B6D51E7F6C3A002417E6 /* FirstViewController.m in Sources */,
 				C6906D351F74D4CC00C4F56F /* UIImageView+border.m in Sources */,
+				C689497B21096A7B00996A55 /* ASHLoginViewController.m in Sources */,
 				C61C73AE1F6BAF9B00C51D65 /* ASHOrganizationDetalViewController.m in Sources */,
 				C61FC3E71F7E494A002A2B33 /* TYPageControl.m in Sources */,
 				C6504C201EE6881B0040C6B0 /* UIView+Extension.m in Sources */,
+				C62BC86E20EDFDB30039D675 /* ASHCarBBSModel.m in Sources */,
 				C6B860491E94C15600FE8795 /* SDCursorView.m in Sources */,
 				C63780891FBD37C900985C8A /* SGQRCodeScanningView.m in Sources */,
 				C621463C20B690B400D241D4 /* MKWQRCodeViewController.m in Sources */,
 				C63780981FBD39F500985C8A /* SGWebView.m in Sources */,
 				C6906D381F74ED2500C4F56F /* ASHFirstDetailTableViewController.m in Sources */,
 				C6E42A331EE06CBA00AD5B37 /* TableViewController.m in Sources */,
+				C62BC86520EDFAA50039D675 /* ASHVideoModel.m in Sources */,
 				C6A9B6CF1E7F6C3A002417E6 /* main.m in Sources */,
 				C63780951FBD39F500985C8A /* QRCodeGenerateVC.m in Sources */,
 				C61508651F73FA570031A31E /* ASHMySupportTableViewController.m in Sources */,
@@ -1726,13 +1887,18 @@
 				C630A51A1ECC1A3100BA98CB /* ASHMainTempUser.m in Sources */,
 				C6D7070E1EC19EA900873078 /* TLCityPickerController.m in Sources */,
 				C6FE10DC1EF22A5D006FD06D /* MOMTimeHelper.m in Sources */,
+				C66DAB7720D25985002ABE4C /* ASHLogoModel.m in Sources */,
 				C6825B431EBB07DF00A7BE10 /* MOMNetWorking.m in Sources */,
 				C61508461F73E8950031A31E /* ASHFirstDetailSupportTableViewCell.m in Sources */,
+				C66DAB7120C12D96002ABE4C /* ASHFeedbackViewController.m in Sources */,
+				C62BC87120EDFE240039D675 /* ASHUserModel.m in Sources */,
 				C63144F21E9CB441002FE8A9 /* MLMSegmentScroll.m in Sources */,
 				C6906D241F74B2EC00C4F56F /* ASHPublisherMainTableViewCell.m in Sources */,
 				C621461F20B55ADA00D241D4 /* User_Model.m in Sources */,
 				C6FB484E1EAE2B81007A7588 /* ASHMineViewController.m in Sources */,
+				C664955120E33A98007DEEC7 /* ASHNewsTWDetailViewController.m in Sources */,
 				C61FC3DD1F7E3BF3002A2B33 /* ASHFirstDetailCollectTableViewCell.m in Sources */,
+				C664955420E33ADA007DEEC7 /* ASHNewsVideoDetailTableViewController.m in Sources */,
 				C68692F71ECED73E005A1795 /* ASHAlertView.m in Sources */,
 				C6FB98431F9B54E800E0B60A /* WXApiManager.m in Sources */,
 				C63144DF1E9B5C35002FE8A9 /* ASHActivityWebViewController.m in Sources */,
@@ -1890,8 +2056,9 @@
 			baseConfigurationReference = 2B07DBD3BAA2C4BDB6A19120 /* Pods-AsHacker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2BKRKGYB4N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1949,10 +2116,10 @@
 					"-framework",
 					"\"UShareUI\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chouduck.chouduck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ash.cps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3246c5a0-e4f6-4b1a-80cf-dd3c6566d20f";
+				PROVISIONING_PROFILE_SPECIFIER = test;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -1965,6 +2132,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2BKRKGYB4N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2022,10 +2190,10 @@
 					"-framework",
 					"\"UShareUI\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chouduck.chouduck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ash.cps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3246c5a0-e4f6-4b1a-80cf-dd3c6566d20f";
+				PROVISIONING_PROFILE_SPECIFIER = test;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

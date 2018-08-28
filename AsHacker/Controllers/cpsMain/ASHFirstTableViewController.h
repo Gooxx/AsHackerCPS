@@ -17,10 +17,19 @@
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
 
+#import "ASHLogoModel.h"
+#import "ASHBBSModel.h"
+
+#import "ASH1VCell.h"
+#import "ASHBBS1PCell.h"
+#import "ASH3PCell.h"
+
+#import "ASHNewsTWDetailViewController.h"
+#import "ASHNewsVideoDetailTableViewController.h"
 
 
-#import "ASHFirstDetailTableViewController.h"
-#import "ASHMainTableViewCell.h"
+//#import "ASHFirstDetailTableViewController.h"
+//#import "ASHMainTableViewCell.h"
 @interface ASHFirstTableViewController : UITableViewController
 
 @end

@@ -9,6 +9,14 @@
 #import "ASHMyTableViewController.h"
 
 @interface ASHMyTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconIV;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nickLabel;
+@property (weak, nonatomic) IBOutlet UILabel *publishLabel;
+@property (weak, nonatomic) IBOutlet UILabel *observeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fansLabel;
 @property(nonatomic,strong)NSArray *menuArr;
 @end
 static NSString * const tableCell = @"cpsMyCellCPS";
@@ -16,9 +24,54 @@ static NSString * const tableCell = @"cpsMyCellCPS";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    _bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"my_bg"]];
+    
+    
     self.menuArr = [PListUtil plistMyMenus];
     
+    
+//    [self.iconIV ash_setImageWithURL:[ASHMainUser head]];
+//    self.nickLabel.text = [ASHMainUser nick];
+//    self.infoLabel.text = [ASHMainUser showInfo];
+//
+//    self.publishLabel.text  = [ASHMainUser bbsCount];
+//    self.observeLabel.text = [ASHMainUser followCount];
+//    self.fansLabel.text = [ASHMainUser fansCount];
+    
+    
+    UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showMe:)];
+    [self.iconIV addGestureRecognizer:tapG];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    
+    [self.iconIV ash_setImageWithURL:[ASHMainUser head]];
+    self.nickLabel.text = [ASHMainUser nick];
+    self.infoLabel.text = [ASHMainUser showInfo];
+    
+    self.publishLabel.text  = [ASHMainUser bbsCount];
+    self.observeLabel.text = [ASHMainUser followCount];
+    self.fansLabel.text = [ASHMainUser fansCount];
+}
+- (IBAction)doEdit:(id)sender {
+    [self showMe:nil];
+}
+
+-(void)showMe:(UITapGestureRecognizer *)sender
+{
+    id ctl =  [self.storyboard instantiateViewControllerWithIdentifier:@"ASHLoginViewController"];
+    [self.navigationController pushViewController:ctl animated:YES];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,11 +98,23 @@ static NSString * const tableCell = @"cpsMyCellCPS";
     NSString *name =  [dic objectForKey:@"name"];
     NSString *img =  [dic objectForKey:@"img"];
     cell.textLabel.text = name;
-    [cell.imageView limitImage:img withSize:CGSizeMake(31, 31)];
-    
+//    [cell.imageView limitImage:img withSize:CGSizeMake(54, 48)];
+    cell.imageView.image = [UIImage imageNamed:img];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *arr = self.menuArr[indexPath.section];
+    NSDictionary *dic = arr[indexPath.row];
+    NSString *name =  [dic objectForKey:@"name"];
+    NSString *url =  [dic objectForKey:@"url"];
+    UIViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:url];
+    
+    
+    [self.navigationController pushViewController:ctl animated:YES];
+//    self.navigationController.navigationBar.hidden = NO;
+}
 
 /*
 // Override to support conditional editing of the table view.

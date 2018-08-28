@@ -13,5 +13,5 @@
 + (NSArray *)properties;
 + (instancetype)ModelWithDict:(NSDictionary *)dic;
 + (NSMutableArray *)dataSourceWithDict:(NSDictionary *)dict key:(NSString *)keyString;
-
++ (NSMutableArray *)ModelsWithArray:(NSArray *)arr;
 @end

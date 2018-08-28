@@ -53,4 +53,16 @@
     return [sourceArray copy];
 }
 
++ (NSMutableArray *)ModelsWithArray:(NSArray *)arr {
+//    NSDictionary *sourceDatDict = [dict objectForKey:@"sourceData"];
+//    NSDictionary *resultDict = [sourceDatDict objectForKey:@"result"];
+//    NSArray *array = [resultDict objectForKey:keyString];
+    NSArray *array = arr;
+    NSMutableArray *sourceArray = [NSMutableArray array];
+    for (NSDictionary *dict in array) {
+        id model = [self ModelWithDict:dict];
+        [sourceArray addObject:model];
+    }
+    return [sourceArray copy];
+}
 @end

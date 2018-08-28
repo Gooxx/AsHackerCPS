@@ -22,7 +22,7 @@
     //    }
     if(![MOMUserDefaults objectForKey:@"userId"]){
         NSLog(@"【***********************不存在该userId************************】");
-        return @"";
+        return @"1";
     }
     return [MOMUserDefaults objectForKey:@"userId"];
 }
@@ -301,9 +301,53 @@
     return  [[MOMUserDefaults objectForKey:@"ifShow60"]boolValue];
 }
 
+
+
+//bbsCount    动态数量    String
++(void)setBbsCount:(NSString *)count{
+     [MOMUserDefaults setObject:count forKey:@"bbsCount"];
+}
++(NSString *)bbsCount
+{
+    return  [MOMUserDefaults objectForKey:@"bbsCount"]?[MOMUserDefaults objectForKey:@"bbsCount"]:@"0";
+    
+}
+
+//followCount    关注数量    String
++(void)setFollowCount:(NSString *)count
+{
+    [MOMUserDefaults setObject:count forKey:@"followCount"];
+}
++(NSString *)followCount
+{
+    return  [MOMUserDefaults objectForKey:@"followCount"]?[MOMUserDefaults objectForKey:@"followCount"]:@"0";
+    
+}
+//fansCount    粉丝数量    String
++(void)setFansCount:(NSString *)count
+{
+    [MOMUserDefaults setObject:count forKey:@"fansCount"];
+}
++(NSString *)fansCount
+{
+    return  [MOMUserDefaults objectForKey:@"fansCount"]?[MOMUserDefaults objectForKey:@"fansCount"]:@"0";
+    
+}
+
+//用户简介
++(void)setShowInfo:(NSString *)info
+{
+     [MOMUserDefaults setObject:info forKey:@"info"];
+}
++(NSString *)showInfo
+{
+    return  [MOMUserDefaults objectForKey:@"info"]?[MOMUserDefaults objectForKey:@"info"]:@"";
+}
+
 +(void)cleanInfo
 {
     [ASHMainUser setAuthorization:nil];
+    
         [ASHMainUser setUserId:nil];
         [ASHMainUser setNick:nil];
         [ASHMainUser setSex:nil];

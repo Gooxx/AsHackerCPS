@@ -33,72 +33,28 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [ASHMainUser cleanInfo];
-//    [MOMNetWorking asynRequestByMethod:@"getIfVolunteer" params:@{@"PROJECT_ID":@108} publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
-//        //            if (!result) {
-//        //                 [[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络访问不成功，请点击屏幕重试" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil ]show];
-//        //            }else{
-//        NSInteger ret = [[result objectForKey:@"statusCode"] integerValue];
-//        NSDictionary *dic = result;
-//        if (MOMResultSuccess==ret) {
-//            //            _dataArr = [dic objectForKey:@"projects"];
-//            //            [self.tableView reloadData];
-//        }
-//        //            }
-//        
-//    }];
-//    UINavigationBar * navigationBar = [UINavigationBar appearance];
-//    
-//    //返回按钮的箭头颜色
-//    
-//    [navigationBar setTintColor:[UIColor whiteColor]];
-//    
-//    //设置返回样式图片
-//    
-//    UIImage *image = [UIImage imageNamed:@"navigationbar_back"];
-//    
-//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    
-//    navigationBar.backIndicatorImage = image;
-//    
-//    navigationBar.backIndicatorTransitionMaskImage = image;
+
+    [ASHMainUser cleanInfo];
+    
     [[UINavigationBar appearance]setTintColor:MOMLightGrayColor];
     //向微信注册wxd930ea5d5a258f4f
-    [WXApi registerApp:@"wx228db45a4d95ff91"];
-//    [WXApi registerApp:@"wx228db45a4d95ff91" withDescription:@"demo 2.0"];
-    //设置NavigationBar背景颜色
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
-    //@{}代表Dictionary
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor clearColor]}];
+//    [WXApi registerApp:@"wx228db45a4d95ff91"]; // chouduck
+      [WXApi registerApp:WX_APPID]; // cps
     
-    [UINavigationBar appearance].backIndicatorTransitionMaskImage = [UIImage imageNamed:@"返回"];
-    
-    [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"返回"];
-//    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:0.1],NSForegroundColorAttributeName: [UIColor clearColor]} forState:UIControlStateNormal];
-//    [UIBarButtonItem appearance] setback
-    
-    
-//    UIBarButtonItem *buttonItem = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
-//    
-//    UIOffset offset;
-//    
-//    offset.horizontal = -500;
-//    
-//    [buttonItem setBackButtonTitlePositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
-    
-    
-    
-    
+//    去掉 back
+    UIOffset offset;
+    offset.horizontal = -500;
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
     [[UMSocialManager defaultManager] openLog:YES];
     
     /* 设置友盟appkey */
 //    [[UMSocialManager defaultManager] setUmSocialAppkey:@"58f6d41df29d98355d002800"];
-     [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a018499f43e485273000057"];
+//     [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a018499f43e485273000057"];
     
     
-    [self configUSharePlatforms];
-    
-    [self confitUShareSettings];
+//    [self configUSharePlatforms];
+//
+//    [self confitUShareSettings];
 
     
     return YES;
@@ -152,6 +108,7 @@
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
+    /*
     //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
     BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
     if (!result) {
@@ -179,9 +136,14 @@
         id ctl = [((UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController visibleViewController];
             return  [WXApi handleOpenURL:url delegate:ctl];
 //        }
+     
+     
 //        return YES;
     }
-    return result;
+     */
+    id ctl = [((UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController visibleViewController];
+    return  [WXApi handleOpenURL:url delegate:ctl];
+//    return YES;
     
    
 }
@@ -242,7 +204,11 @@
     /* 设置微信的appKey和appSecret */
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx228db45a4d95ff91" appSecret:@"a01704c9110266fa212d848e5597395a" redirectURL:@"http://mobile.umeng.com/social"];
+    //chouduck
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx228db45a4d95ff91" appSecret:@"a01704c9110266fa212d848e5597395a" redirectURL:@"http://mobile.umeng.com/social"];
+    //cps
+     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx43e0ca9ffb089215" appSecret:@"2b0e6d554249a4b35f194801bbc48ba7" redirectURL:@"http://mobile.umeng.com/social"];
+    
     /*
      * 移除相应平台的分享，如微信收藏
      */
@@ -251,9 +217,9 @@
     /* 设置分享到QQ互联的appID
      * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
      */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106163758"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106163758"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"1431153700"  appSecret:@"b516979cf65e745b1047a97ae156550c" redirectURL:@"http://www.chouduck.com/"];
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"1431153700"  appSecret:@"b516979cf65e745b1047a97ae156550c" redirectURL:@"http://www.chouduck.com/"];
     
     
     
@@ -273,6 +239,7 @@
 //微信SDK自带的方法，处理从微信客户端完成操作后返回程序之后的回调方法,显示支付结果的
 -(void) onResp:(BaseResp*)resp
 {
+     NSLog(@"微信SDK自带的方法-----------------2-");
     //启动微信支付的response
     NSString *payResoult = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
     if([resp isKindOfClass:[PayResp class]]){

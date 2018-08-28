@@ -17,7 +17,79 @@ static AFHTTPSessionManager *manager;
 @end
 
 @implementation MOMNetWorking
-
++(void)checkWXTokenWithCode:(NSString *)code callback:(void(^)(id result,NSError *error))callback
+{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *wxurl = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WX_APPID,WX_APPSECRET,code];
+    [manager GET:wxurl parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"进度条uploadProgress------------:%f",uploadProgress.fractionCompleted);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //            [MOMProgressHUD dismiss];
+        NSError *error=nil;
+//        {
+//            "access_token":"ACCESS_TOKEN",
+//            "expires_in":7200,
+//            "refresh_token":"REFRESH_TOKEN",
+//            "openid":"OPENID",
+//            "scope":"SCOPE",
+//            "unionid":"o6_bmasdasdsad6_2sgVt7hMZOPfL"
+//        }
+        NSLog(@"请求reAccess的response = %@", responseObject);
+//        NSDictionary *refreshDict = [NSDictionary dictionaryWithDictionary:responseObject];
+        NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        //        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        callback(obj,error);
+//        NSString *reAccessToken = [refreshDict objectForKey:@"access_token"];
+//        if (reAccessToken) {
+//
+//        }
+//        callback(obj,error);
+//        NSDictionary *refreshDict = [NSDictionary dictionaryWithDictionary:responseObject];
+//        NSString *reAccessToken = [refreshDict objectForKey:WX_ACCESS_TOKEN];
+        // 如果reAccessToken为空,说明reAccessToken也过期了,反之则没有过期
+//        if (reAccessToken) {
+            // 更新access_token、refresh_token、open_id
+//            [[NSUserDefaults standardUserDefaults] setObject:reAccessToken forKey:WX_ACCESS_TOKEN];
+//            [[NSUserDefaults standardUserDefaults] setObject:[refreshDict objectForKey:WX_OPEN_ID] forKey:WX_OPEN_ID];
+//            [[NSUserDefaults standardUserDefaults] setObject:[refreshDict objectForKey:WX_REFRESH_TOKEN] forKey:WX_REFRESH_TOKEN];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+            // 当存在reAccessToken不为空时直接执行AppDelegate中的wechatLoginByRequestForUserInfo方法
+//            !self.requestForUserInfoBlock ? : self.requestForUserInfoBlock();
+//        }
+        //成功 cb是对方传递过来的对象 这里是直接调用
+        //            NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+//        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//
+//        string = [string stringByReplacingOccurrencesOfString:@"<script language=\"javascript\" type=\"text/javascript\">window.top.window.jQuery(\"#temporary_iframe_id\").data(\"deferrer\").resolve(" withString:@""];
+//        string = [string stringByReplacingOccurrencesOfString:@");</script>" withString:@""];
+//        string = [string stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\""];
+//        //            string = [string stringByReplacingOccurrencesOfString:@"0\"\"" withString:@""];
+//
+//        NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+//        NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+//        NSSLog(@"URLStr:%@?%@--%@------obj:%@",URLStr,mParams,allParams,obj);
+//        //            NSSLog(@"obj------------:%@",obj);
+//
+//        callback(obj,error);
+//        {
+//            "access_token":"ACCESS_TOKEN",
+//            "expires_in":7200,
+//            "refresh_token":"REFRESH_TOKEN",
+//            "openid":"OPENID",
+//            "scope":"SCOPE",
+//            "unionid":"o6_bmasdasdsad6_2sgVt7hMZOPfL"
+//        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //            [MOMProgressHUD dismiss];
+        NSSLog(@"failure-----------网络请求失败了");
+        callback(nil,error);
+    
+        NSLog(@"用refresh_token来更新accessToken时出错 = %@", error);
+    }];
+}
 //异步
 +(void)asynRequestByMethod:(NSString *)method params:(NSDictionary *)params publicParams:(MOMNetPublicParam)publicParams callback:(void(^)(id result,NSError *error))callback
 {

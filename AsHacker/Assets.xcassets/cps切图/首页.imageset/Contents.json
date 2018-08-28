@@ -6,17 +6,20 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "任务@2x.png",
+      "filename" : "微信图片_20180612164915.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "任务@3x.png",
+      "filename" : "微信图片_20180612164907.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

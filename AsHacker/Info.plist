@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.chouduck.chouduck</string>
+			<string>com.ash.cps</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx228db45a4d95ff91</string>
+				<string>wx43e0ca9ffb089215</string>
 			</array>
 		</dict>
 		<dict>
@@ -59,10 +59,10 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.chouduck.chouduck</string>
-			</array>
+			<array/>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -74,7 +74,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>

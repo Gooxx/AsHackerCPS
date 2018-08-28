@@ -40,11 +40,13 @@
 //    if (![@"" isEqualToString:item.title]) {
 //        <#statements#>
 //    }
-    if (item.tag!=@22) {
-        UINavigationController *DATANavi = [self.storyboard instantiateViewControllerWithIdentifier:@"activityTableController2"];
-        ASHActivityTableViewController *ctl =  DATANavi.topViewController;
-        [ctl.playerView pause];
-    }
+//    if (item.tag!=@22) {
+//        UINavigationController *DATANavi = [self.storyboard instantiateViewControllerWithIdentifier:@"activityTableController2"];
+//        ASHActivityTableViewController *ctl =  DATANavi.topViewController;
+//        [ctl.playerView pause];
+//    }
+    
+    
     
 }
 - (void)didReceiveMemoryWarning {
