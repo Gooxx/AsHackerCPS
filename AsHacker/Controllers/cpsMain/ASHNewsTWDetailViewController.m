@@ -25,10 +25,10 @@
     [super viewDidLoad];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:_lModel.id forKey:@"id"];
-    [params setObject:ASHMainUser.userId forKey:@"userId"];
+    [params setObject:_detailId forKey:@"id"];
+//    [params setObject:ASHMainUser.userId forKey:@"userId"];
 
-    [MOMNetWorking asynRequestByMethod:@"mainBbsById.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+    [MOMNetWorking asynRequestByMethod:@"mainBbsById.do" params:params publicParams:MOMNetPublicParamToken callback:^(id result, NSError *error) {
         NSInteger ret = [[result objectForKey:@"ret"] integerValue];
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {

@@ -49,6 +49,15 @@
     
 }
 
++(void)setToken:(NSString *)token
+{
+    [MOMUserDefaults setObject:token forKey:@"token"];
+}
++(NSString *)token
+{
+    NSString *token = [MOMUserDefaults objectForKey:@"token"]?[MOMUserDefaults objectForKey:@"token"]:@"";
+    return token;
+}
 //session
 +(void)setKey:(NSString *)key
 {
@@ -186,6 +195,22 @@
 {
      return [MOMUserDefaults objectForKey:@"phoneNumber"];
 }
+
+// 是否已经绑定电话号码 is_first_login    因为不需要绑定只会返回1
++(void)setFirstLogin:(NSString *)need
+{
+    [MOMUserDefaults setObject:need forKey:@"is_first_login"];
+}
++(BOOL)isFirstLogin
+{
+    NSString *need =  [MOMUserDefaults objectForKey:@"is_first_login"]?[MOMUserDefaults objectForKey:@"is_first_login"]:@"0";
+    if ([@"1" isEqualToString:need]) {
+        return NO;
+    }
+    return  YES;
+}
+
+
 
 //所属小区
 //+(void)setArea:(MOMArea *)area
@@ -337,27 +362,59 @@
 //用户简介
 +(void)setShowInfo:(NSString *)info
 {
-     [MOMUserDefaults setObject:info forKey:@"info"];
+     [MOMUserDefaults setObject:info forKey:@"user_info"];
 }
 +(NSString *)showInfo
 {
-    return  [MOMUserDefaults objectForKey:@"info"]?[MOMUserDefaults objectForKey:@"info"]:@"";
+    return  [MOMUserDefaults objectForKey:@"user_info"]?[MOMUserDefaults objectForKey:@"user_info"]:@"";
+}
+
++(void)updateUserInfo:(NSDictionary *)dic
+{
+    NSString *token =[dic objectForKey:@"user_token"];
+    NSString *userId =[dic objectForKey:@"user_id"];
+    NSString *phoneNum =[dic objectForKey:@"phone_num"];
+    NSString *isfirstlogin =[dic objectForKey:@"is_first_login"];
+    [ASHMainUser setToken:token];
+    [ASHMainUser setUserId:userId];
+    [ASHMainUser setPhoneNumber:phoneNum];
+    [ASHMainUser setFirstLogin:isfirstlogin];
+    
+    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
+    [ASHMainUser setShowInfo:[dic objectForKey:@"user_info"]];
+    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
+    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
+    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
+    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
+    
+    [MOMUserDefaults setObject:dic forKey:@"userInfo"];
 }
 
 +(void)cleanInfo
 {
-    [ASHMainUser setAuthorization:nil];
+    [ASHMainUser setToken:nil];
+    [ASHMainUser setUserId:nil];
+    [ASHMainUser setPhoneNumber:nil];
+    [ASHMainUser setFirstLogin:nil];
     
-        [ASHMainUser setUserId:nil];
-        [ASHMainUser setNick:nil];
-        [ASHMainUser setSex:nil];
-        [ASHMainUser setHead:nil];
-    
-     [ASHMainUser setPhoneNumber:nil];
-     [ASHMainUser setAge:nil];
-     [ASHMainUser setPost:nil];
-     [ASHMainUser setCompany:nil];
-    [ASHMainUser setAreaName:nil];
+    [ASHMainUser setNick:nil];
+    [ASHMainUser setShowInfo:nil];
+    [ASHMainUser setHead:nil];
+    [ASHMainUser setBbsCount:nil];
+    [ASHMainUser setFollowCount:nil];
+    [ASHMainUser setFansCount:nil];
+//    [ASHMainUser setAuthorization:nil];
+//
+//        [ASHMainUser setUserId:nil];
+//        [ASHMainUser setNick:nil];
+//        [ASHMainUser setSex:nil];
+//        [ASHMainUser setHead:nil];
+//
+//     [ASHMainUser setPhoneNumber:nil];
+//     [ASHMainUser setAge:nil];
+//     [ASHMainUser setPost:nil];
+//     [ASHMainUser setCompany:nil];
+//    [ASHMainUser setAreaName:nil];
     
     [ASHMainUser setWatchedNum:0];
     

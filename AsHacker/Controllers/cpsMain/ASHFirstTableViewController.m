@@ -43,7 +43,7 @@ static NSInteger const PAGE_COUNT = 10;
 
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
-    
+    [self refreshLogo];
      [self refreshData];
      // 自适应高的cell
     self.tableView.estimatedRowHeight = 150.0f;
@@ -72,18 +72,19 @@ static NSInteger const PAGE_COUNT = 10;
     }
     [self.tableView reloadData];
     
-    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count+10];
+    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSInteger count = _dataArr.count;
     NSInteger num =  count/PAGE_COUNT;
     
-    [params setObject:[NSString stringWithFormat:@"%ld",num] forKey:@"pageIndex"];
-    [params setObject:rowCountStr forKey:@"count"];
+    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
+    [params setObject:@"10" forKey:@"count"];
+     [params setObject:@"1" forKey:@"flag"];
     
     
-    [MOMNetWorking asynRequestByMethod:@"mainBbsList.do" params:@{@"flag":@1} publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+    [MOMNetWorking asynRequestByMethod:@"mainBbsList.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
         NSInteger ret = [[result objectForKey:@"ret"] integerValue];
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {
@@ -132,7 +133,7 @@ static NSInteger const PAGE_COUNT = 10;
         if (MOMResultSuccess==ret) {
 //            _dataArr = [dic objectForKey:@"list"];
              _logoArr = [ASHLogoModel ModelsWithArray:[dic objectForKey:@"list"]];
-//            [self.tableView reloadData];
+            [self.tableView reloadData];
         }
     }];
     /*
@@ -177,7 +178,40 @@ static NSInteger const PAGE_COUNT = 10;
     
     NSArray *cellNames = @[@"cpsMainCellLB",@"cpsMainCell1P",@"cpsMainCell3P",@"cpsMainCell1V"];
     if (0==indexPath.row) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cpsMainCellLB" forIndexPath:indexPath];
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHOrganizationBannerCell" forIndexPath:indexPath];
+//        return cell;
+        
+        ASHOrganizationBannerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHOrganizationBannerCell" forIndexPath:indexPath];
+//        //        if (!cell) {
+        cell.datas = _logoArr;
+        [cell loadData];
+        //        __block NSIndexPath *weakIndexPath = indexPath;
+        //    __block ZFPlayerCell *weakCell     = cell;
+        //        __block ASHOrganizationBannerCell *weakCell     = cell;
+        
+        
+//        __weak typeof(self)  weakSelf      = self;
+        
+//        cell.showBlock = ^(TYCyclePagerView *pageView, UICollectionViewCell *cell, NSInteger index) {
+//            ASHLogoModel *model = _logoArr[indexPath.row];
+////            if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
+//                ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
+//                ctl.detailId = model.id;
+////                ctl.lModel = model;
+//
+//                [self.navigationController pushViewController:ctl animated:YES];
+//
+////            }else if (ASHBBSType1V == model.bbs_type) {
+////                ASHNewsVideoDetailTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsVideoDetailTableViewController"];
+//////                ctl.lModel = model;
+////                ctl.detailId = model.id;
+////                [self.navigationController pushViewController:ctl animated:YES];
+////            }
+////            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:FIRST_STORYBOARD bundle:nil];
+////            ASHFirstDetailTableViewController *ctl = [storyboard instantiateViewControllerWithIdentifier:@"ASHFirstDetailTableViewController"];
+////            ctl.dataDic = _dataArr[index];
+////            [weakSelf.navigationController pushViewController:ctl animated:YES];
+//        };
         return cell;
     }else{
         ASHBBSModel *model = _dataArr[indexPath.row-1];
@@ -227,13 +261,15 @@ static NSInteger const PAGE_COUNT = 10;
     if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
         ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
         
-        ctl.lModel = model;
+//        ctl.lModel = model;
+        ctl.detailId = model.id;
        
         [self.navigationController pushViewController:ctl animated:YES];
        
     }else if (ASHBBSType1V == model.bbs_type) {
         ASHNewsVideoDetailTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsVideoDetailTableViewController"];
-        ctl.lModel = model;
+//        ctl.lModel = model;
+        ctl.detailId = model.id;
         [self.navigationController pushViewController:ctl animated:YES];
     }
     

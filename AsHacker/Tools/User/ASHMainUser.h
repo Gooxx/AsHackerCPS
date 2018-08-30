@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Config.h"
 @interface ASHMainUser : NSObject
-//用户Id
+//用户Id 
 +(void)setUserId:(NSString *)userId;
 +(NSString *)userId;
-//authorization
-+(void)setAuthorization:(NSString *)authorization;
-+(NSString *)authorization;
+//authorization  token
+//+(void)setAuthorization:(NSString *)authorization;
+//+(NSString *)authorization;
+
++(void)setToken:(NSString *)token;
++(NSString *)token;
+
 
 //用户昵称
 +(void)setNick:(NSString *)nick;
@@ -55,6 +59,10 @@
 +(void)setFansCount:(NSString *)count;
 +(NSString *)fansCount;
 
+
+// 是否已经绑定电话号码 is_first_login    因为不需要绑定只会返回1
++(void)setFirstLogin:(NSString *)enable;
++(BOOL)isFirstLogin;
 /*
 //性别
 //+(void)setSex:(MOMUserSex)sex;
@@ -124,6 +132,9 @@
 //
 //+(void)setObserveAreaName:(NSString *)areaName;
 //+(NSString *)observeAreaName;
+
+//更新用户信息
++(void)updateUserInfo:(NSDictionary *)dic;
 //清除信息
 +(void)cleanInfo;
 @end

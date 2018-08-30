@@ -12,6 +12,8 @@
 #import "TYCyclePagerView.h"
 #import "TYPageControl.h"
 #import "TYCyclePagerViewCell.h"
+
+#import "ASHLogoModel.h"
 @interface ASHOrganizationBannerCell : UITableViewCell
 @property (nonatomic, strong) TYCyclePagerView *pagerView;
 @property (nonatomic, strong) TYPageControl *pageControl;

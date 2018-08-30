@@ -10,4 +10,6 @@
 #import "ASHBBSModel.h"
 @interface ASHNewsVideoDetailTableViewController : UITableViewController
 @property(nonatomic,strong)ASHBBSModel *lModel;
+
+@property(nonatomic,strong)NSString *detailId;
 @end

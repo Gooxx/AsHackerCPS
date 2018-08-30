@@ -16,7 +16,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 
-#import <UMSocialCore/UMSocialCore.h>
+//#import <UMSocialCore/UMSocialCore.h>
 #import "MOMNetWorking.h"
 
 #import "MOMProgressHUD.h"
@@ -171,18 +171,18 @@
                 NSDictionary *dic = result;
                 if (MOMResultSuccess==ret) {
                     
-                    
+                     [ASHMainUser updateUserInfo:dic];
 //                    [MOMProgressHUD showSuccessWithStatus:@"登陆成功"];
-                    NSString *token =[dic objectForKey:@"token"];
-                    NSString *userId =[dic objectForKey:@"openid"];
-//                    NSString *phoneNum =[dic objectForKey:@"phone_num"];
-                    [ASHMainUser setAuthorization:token];
-                    
-                    [ASHMainUser setUserId:userId];
-//                    [ASHMainUser setPhoneNumber:phoneNum];
-                    
-                    [ASHMainUser setNick:[dic objectForKey:@"userInfo"]];
-                    [ASHMainUser setHead:[dic objectForKey:@"headimgurl"]];
+//                    NSString *token =[dic objectForKey:@"token"];
+//                    NSString *userId =[dic objectForKey:@"openid"];
+////                    NSString *phoneNum =[dic objectForKey:@"phone_num"];
+//                    [ASHMainUser setToken:token];
+//
+//                    [ASHMainUser setUserId:userId];
+////                    [ASHMainUser setPhoneNumber:phoneNum];
+//
+//                    [ASHMainUser setNick:[dic objectForKey:@"userInfo"]];
+//                    [ASHMainUser setHead:[dic objectForKey:@"headimgurl"]];
 //                    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
 //                    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
 //                    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
@@ -215,32 +215,7 @@
     
 }
 
-- (void)getAuthWithUserInfoFromWechat
-{
-    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
-        if (error) {
-            
-        } else {
-            UMSocialUserInfoResponse *resp = result;
-            
-            // 授权信息
-            NSLog(@"Wechat uid: %@", resp.uid);
-            NSLog(@"Wechat openid: %@", resp.openid);
-            NSLog(@"Wechat accessToken: %@", resp.accessToken);
-            NSLog(@"Wechat refreshToken: %@", resp.refreshToken);
-            NSLog(@"Wechat expiration: %@", resp.expiration);
-            
-            // 用户信息
-            NSLog(@"Wechat name: %@", resp.name);
-            NSLog(@"Wechat iconurl: %@", resp.iconurl);
-            NSLog(@"Wechat gender: %@", resp.gender);
-            
-            // 第三方平台SDK源数据
-            NSLog(@"Wechat originalResponse: %@", resp.originalResponse);
-//            [self doLoginWithParams:resp];
-        }
-    }];
-}
+
 
 
 
@@ -299,20 +274,25 @@
                 if (MOMResultSuccess==ret) {
                     
                     [MOMProgressHUD showSuccessWithStatus:@"登陆成功"];
-                    NSString *token =[dic objectForKey:@"user_token"];
-                    NSString *userId =[dic objectForKey:@"open_id"];
-                     NSString *phoneNum =[dic objectForKey:@"phone_num"];
-                    [ASHMainUser setAuthorization:token];
-                    [ASHMainUser setUserId:userId];
-                    [ASHMainUser setPhoneNumber:phoneNum];
                     
-                    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
-                    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
-                    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
-                    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
-                    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
+                    [ASHMainUser updateUserInfo:dic];
+//                    NSString *token =[dic objectForKey:@"user_token"];
+//                    NSString *userId =[dic objectForKey:@"user_id"];
+//                    NSString *phoneNum =[dic objectForKey:@"phone_num"];
+//                    NSString *isfirstlogin =[dic objectForKey:@"is_first_login"];
+//                    [ASHMainUser setToken:token];
+//                    [ASHMainUser setUserId:userId];
+//                    [ASHMainUser setPhoneNumber:phoneNum];
+//                    [ASHMainUser setFirstLogin:isfirstlogin];
+//
+//                    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
+//                    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
+//                    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
+//                    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
+//                    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
                     
                     [self.navigationController popViewControllerAnimated:YES];
+                    
                 }else{
                     [MOMProgressHUD showSuccessWithStatus:@"登陆失败"];
                 }
@@ -321,6 +301,24 @@
     }
     
 }
+//
+//-(void)updateUserInfo:(NSDictionary *)dic
+//{
+//    NSString *token =[dic objectForKey:@"user_token"];
+//    NSString *userId =[dic objectForKey:@"user_id"];
+//    NSString *phoneNum =[dic objectForKey:@"phone_num"];
+//    NSString *isfirstlogin =[dic objectForKey:@"is_first_login"];
+//    [ASHMainUser setToken:token];
+//    [ASHMainUser setUserId:userId];
+//    [ASHMainUser setPhoneNumber:phoneNum];
+//    [ASHMainUser setFirstLogin:isfirstlogin];
+//
+//    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
+//    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
+//    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
+//    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
+//    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

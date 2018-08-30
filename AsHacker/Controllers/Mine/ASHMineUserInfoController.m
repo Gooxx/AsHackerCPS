@@ -80,7 +80,7 @@
             NSString *token =[dic objectForKey:@"token"];
             [ASHMainUser setNick:[params objectForKey:@"realName"]];
             if([self checkNull:token]){
-                [ASHMainUser setAuthorization:token];
+                [ASHMainUser setToken:token];
                 
             }
         }

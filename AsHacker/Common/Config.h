@@ -221,7 +221,8 @@ typedef NS_ENUM(NSInteger,MOMNetPublicParam) {
     MOMNetPublicParamNone=0,
     MOMNetPublicParamUserId = 1<<0,
     MOMNetPublicParamKey = 1<<1,
-    MOMNetPublicParamAreaId = 1<<2
+    MOMNetPublicParamAreaId = 1<<2,
+    MOMNetPublicParamToken = 1<<3
 };
 
 ///dong美术馆 音乐馆 科技馆

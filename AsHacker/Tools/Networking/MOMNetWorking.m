@@ -127,11 +127,11 @@ static AFHTTPSessionManager *manager;
 //        manager.requestSerializer = [self createPOSTRequestWithURL:URLStr params:mParams];
 //        [manager.requestSerializer setValue:@"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7IlVTRVJfSUQiOjgsIlBIT05FX05PIjoiMTg1MDIyNzcwNzgiLCJMT0dJTl9JRCI6Im81Rms5d3F3dk8tRVJSS2ZPTEF6NEVETUZsRFkiLCJQQVNTV09SRCI6ImUzY2ViNTg4MWEwYTFmZGFhZDAxMjk2ZDc1NTQ4NjhkIiwiUkVBTF9OQU1FIjoiQ2hlblRhbyIsIlNFWCI6IueUtyIsIkFHRSI6IjYw5ZCOIiwiUFJPVklOQ0UiOiLlpKnmtKXluIIiLCJDSVRZIjoi5aSp5rSl5biCIiwiQVZBVEFSX0hSRUYiOiLpobnnm67lm75fMjAxNzA5MTMxMTA3MTAudGh1bWIucG5nIiwiSUZfT1JHQU5JWkVSIjozLCJGQUlMX1JFQVNPTiI6bnVsbCwiT1JHQU5JWkFUSU9OX0lEIjoxLCJPUkdBTklaQVRJT05fTkFNRSI6IkFzaGFja2VyIiwiQ0FURUdPUlkiOiLkvZPogrIiLCJPUkdBTklaQVRJT05fUFJPVklOQ0UiOiLmsrPljJfnnIEiLCJPUkdBTklaQVRJT05fQ0lUWSI6IuWUkOWxseW4giIsIkxPR09fSFJFRiI6IjEuSDXpobXpnaLpppbpobVfMjAxNzA5MTcxODE0NDcudGh1bWIucG5nIiwiRU1BSUwiOiJjaGVudGFvX2JkeXpAb3V0bG9vay5jb20iLCJUWVBFIjozLCJEVVRZX05BTUUiOiJjaGVuZnV6ZSIsIkxBV19OQU1FIjoiY2hlbnNoYW5neWUiLCJDQVJEX05PIjoiMTIwMjIyMjIyMjIyIiwiQ0FSRF9IUkVGXzEiOiLmiqXlkI3lj4LkuI5fMjAxNzA5MjExNTM5MjkucG5nIiwiQ0FSRF9IUkVGXzIiOiLmkq3mlL5fMjAxNzA5MjExNTM5MzUucG5nIiwiTElDRU5TRV9IUkVGIjoi6aG555uu5Zu-XzIwMTcwOTI1MjExMTU1LnBuZyIsIkRVVFlfU0VYIjoi5aWzIiwiRFVUWV9BR0UiOiIwMOWQjiIsIlRFQU1fTkFNRSI6ImFzaGFja2VyIiwiVklERU9fSFJFRiI6IjIwMTctNy0yOOeJp-mHjuKAlOKAlOOAiuaRh-aRh-aZg-aZg-eahOS6uumXtOOAi-iwg-iJsl8xX3gyNjRfMjAxNzA5MTcxODE4MDMubXA0IiwiUEhPVE9fSFJFRiI6IkdXMDAzXzIwMTcwOTE3MTgxOTIzLmpwZyIsIlRFQU1fSU5UUk8iOiLmioDmnK_mlK_mjIHpg6jpl6giLCJURUFNX0NBVEVHT1JZIjoi5L2T6IKyIiwiVEVBTV9QUk9WSU5DRSI6IuWGheiSmeWPpOiHquayu-WMuiIsIlRFQU1fQ0lUWSI6IuWRvOWSjOa1qeeJueW4giIsIkxPR0lOX1RJTUUiOiIyMDE3LTEwLTA3IDE2OjAyOjI0IiwiUkVNT1RFX0FERFJFU1MiOiI2MC4yNS4xMy45MyIsIkxPR09VVF9USU1FIjoiMjAxNy0xMC0wNiAxODowMToxNCIsIklGX1VTSU5HIjoxLCJUT19CRV9VTklURUQiOjEsIlBST0pFQ1RfSUQiOjAsIklOVklURV9DT0RFIjpudWxsfSwiaWF0IjoxNTA3MzYzMzQ0fQ.OizSnPmf1QE0HC9y39ndzrldg0WNUHd5qkS4u6d588U" forHTTPHeaderField:@"authorization"];
         
-        if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
-            [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
-            
-        }
-        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//        if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
+//            [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+//
+//        }
+//        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 //         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[ASHMainUser authorization]]];
 //        [{"key":"Content-Type","value":"application/x-www-form-urlencoded","description":""}]
 //        authorization
@@ -214,10 +214,10 @@ static AFHTTPSessionManager *manager;
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
     
-        if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
-            [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
-            
-        }
+//        if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
+//            [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+//
+//        }
         [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         //         [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[ASHMainUser authorization]]];
         //        [{"key":"Content-Type","value":"application/x-www-form-urlencoded","description":""}]
@@ -393,7 +393,7 @@ static AFHTTPSessionManager *manager;
         
 //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:fileURL] name:@"file" fileName:@"filename.png" mimeType:@"image/png" error:nil];
     } error:nil];
-    [request setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+//    [request setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
 
 //    NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
 //    [request setHTTPMethod:@"POST"];
@@ -582,9 +582,13 @@ static AFHTTPSessionManager *manager;
 +(NSMutableDictionary *)createPublicParams:(MOMNetPublicParam)publicParams
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    NSString *userId = [MOMCurrentUser userId];
+    if (publicParams&MOMNetPublicParamToken) {
+        NSString *token = [ASHMainUser token];
+        [params setObject:token forKey:@"token"];
+    }
+//    NSString *token = [ASHMainUser token];
 //    if (userId&&![@"" isEqualToString:userId]) {
-//        [params setObject:userId forKey:@"id"];
+//        [params setObject:userId forKey:@"token"];
 //    }
     /*
     if (publicParams&MOMNetPublicParamUserId) {

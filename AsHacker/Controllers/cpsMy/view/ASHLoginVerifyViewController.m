@@ -59,7 +59,7 @@
          
          */
         NSString *openId = [ASHMainUser userId];
-        NSString *token = [ASHMainUser authorization];
+        NSString *token = [ASHMainUser token];
         
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:phone,@"phone_num",code,@"sms_code",openId,@"openid",token,@"token", nil];
         [MOMNetWorking asynRequestByMethod:@"bindPhone.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
@@ -71,7 +71,7 @@
                 NSString *token =[dic objectForKey:@"token"];
                 NSString *userId =[dic objectForKey:@"openid"];
                 NSString *phoneNum = phone;//[dic objectForKey:@"phone_num"];
-                [ASHMainUser setAuthorization:token];
+                [ASHMainUser setToken:token];
                 [ASHMainUser setUserId:userId];
                 [ASHMainUser setPhoneNumber:phoneNum];
                 

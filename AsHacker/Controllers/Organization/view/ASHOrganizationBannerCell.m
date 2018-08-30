@@ -84,9 +84,9 @@
     TYCyclePagerViewCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndex:index];
 //    cell.backgroundColor = _datas[index];
 //    cell.label.text = [NSString stringWithFormat:@"index->%ld",index];
-    NSDictionary *dic =  _datas[index];
+    ASHLogoModel *model =  _datas[index];
 //    [dic objectForKey:@""];
-     NSString *imgURLStr = [NSString stringWithFormat:@"%@%@",HTTPURL,[dic objectForKey:@"COVER_HREF"]];
+     NSString *imgURLStr = [NSString stringWithFormat:@"%@%@",HTTPURL,model.logo_img];
 //    cell.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgURLStr]]]];
     [cell.imageView ash_setImageWithURL:imgURLStr];
     return cell;

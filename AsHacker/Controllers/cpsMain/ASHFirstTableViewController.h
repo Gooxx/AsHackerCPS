@@ -24,6 +24,8 @@
 #import "ASHBBS1PCell.h"
 #import "ASH3PCell.h"
 
+#import "ASHOrganizationBannerCell.h"
+
 #import "ASHNewsTWDetailViewController.h"
 #import "ASHNewsVideoDetailTableViewController.h"
 
