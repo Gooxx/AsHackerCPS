@@ -10,6 +10,7 @@
 #import "Config.h"
 #import "MOMNetWorking.h"
 #import "UIImageView+ASH.h"
+#import "MOMProgressHUD.h"
 
 #import "ASHBBSModel.h"
 @interface ASHNewsTWDetailViewController : UIViewController

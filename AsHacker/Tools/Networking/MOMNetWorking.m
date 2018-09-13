@@ -155,14 +155,14 @@ static AFHTTPSessionManager *manager;
 //            NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
             NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             
-            string = [string stringByReplacingOccurrencesOfString:@"<script language=\"javascript\" type=\"text/javascript\">window.top.window.jQuery(\"#temporary_iframe_id\").data(\"deferrer\").resolve(" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@");</script>" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\""];
+//            string = [string stringByReplacingOccurrencesOfString:@"<script language=\"javascript\" type=\"text/javascript\">window.top.window.jQuery(\"#temporary_iframe_id\").data(\"deferrer\").resolve(" withString:@""];
+//            string = [string stringByReplacingOccurrencesOfString:@");</script>" withString:@""];
+//            string = [string stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\""];
 //            string = [string stringByReplacingOccurrencesOfString:@"0\"\"" withString:@""];
             
             NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-             NSSLog(@"URLStr:%@?%@--%@------obj:%@",URLStr,mParams,allParams,obj);
+             NSSLog(@"URLStr2:%@?%@--%@------obj:%@",URLStr,mParams,allParams,obj);
 //            NSSLog(@"obj------------:%@",obj);
             
             callback(obj,error);
@@ -582,10 +582,18 @@ static AFHTTPSessionManager *manager;
 +(NSMutableDictionary *)createPublicParams:(MOMNetPublicParam)publicParams
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    
     if (publicParams&MOMNetPublicParamToken) {
         NSString *token = [ASHMainUser token];
         [params setObject:token forKey:@"token"];
     }
+    if (publicParams&MOMNetPublicParamUserId) {
+        NSString *userId = [ASHMainUser userId];
+        [params setObject:userId forKey:@"userId"];
+    }
+    
+    
 //    NSString *token = [ASHMainUser token];
 //    if (userId&&![@"" isEqualToString:userId]) {
 //        [params setObject:userId forKey:@"token"];

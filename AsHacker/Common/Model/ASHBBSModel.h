@@ -25,6 +25,7 @@
 //@property (nonatomic , assign) long id;
 @property (nonatomic , strong) NSString *id;
 @property (nonatomic , strong) NSString *bbs_title;
+@property (nonatomic , strong) NSString *user_nick;
 
 @property (nonatomic , assign) long bbs_type;
 @property (nonatomic , strong) NSString *bbs_description;

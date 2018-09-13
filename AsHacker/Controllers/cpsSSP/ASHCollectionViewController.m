@@ -9,23 +9,77 @@
 #import "ASHCollectionViewController.h"
 
 @interface ASHCollectionViewController ()
-
+@property(strong,nonatomic)NSArray *dataArr;
 @end
-
+static NSInteger const PAGE_COUNT = 10;
 @implementation ASHCollectionViewController
 
-static NSString * const reuseIdentifier = @"testCell";
+static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshDataUP)];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+       [self refreshData];
+
+//    [self.collectionView registerNib:[ASHSSPCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+}
+- (IBAction)addSSP:(id)sender {
+//    ASHGPUImageController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHGPUImageController"];
+////    ASHGPUImageController *ctl = [[ASHGPUImageController alloc]init];
+//    [self.navigationController pushViewController:ctl animated:YES];
+}
+//数据源
+-(void)refreshDataUP{
+    
+    [self refreshData];
+}
+
+-(void)refreshDataDown{
+    [self refreshData];
+}
+
+-(void)refreshData{
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
+    if (!_dataArr) {
+        _dataArr =  [NSMutableArray array];
+        
+    }
+//    [self.collectionView reloadData];
+    //    videoList
+    //    flag    随手拍标识
+    //    1立即发布
+    //    2待审核视频
+    //    0删除    String
+    //    userId    文章类别    String
+    //    pageIndex    起始数    String
+    //    count    每页显示数    String
+//    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSInteger count = _dataArr.count;
+    NSInteger num =  count/PAGE_COUNT;
+    
+    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
+    [params setObject:@"10" forKey:@"count"];
+    [params setObject:@"1" forKey:@"flag"];
+    
+    
+    [MOMNetWorking asynRequestByMethod:@"videoList.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+        NSInteger ret = [[result objectForKey:@"ret"] integerValue];
+        NSDictionary *dic = result;
+        if (MOMResultSuccess==ret) {
+            //            _dataArr = [dic objectForKey:@"list"];
+            _dataArr = [ASHVideoModel ModelsWithArray:[dic objectForKey:@"list"]];
+            [self.collectionView reloadData];
+        }
+    }];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,12 +105,19 @@ static NSString * const reuseIdentifier = @"testCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return _dataArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ASHVideoModel *model =_dataArr[indexPath.row];
+    ASHSSPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    if (!cell) {
+//        cell = [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:nil options:nil];
+//    }
+//    cell.bgIV ash_setImageWithURL:model.
     
+    cell.titleLabel.text = model.video_title;
+    cell.nameLabel.text = model.video_description;
     
     
     return cell;

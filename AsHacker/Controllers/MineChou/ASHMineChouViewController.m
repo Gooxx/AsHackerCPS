@@ -37,7 +37,7 @@
     _namelabel.text = [ASHMainUser nick];
     [_iconIV ash_setImageWithURL:[ASHMainUser head]];
     
-    if ([ASHMainUser authorization]) {
+    if ([ASHMainUser userId]) {
         _namelabel.hidden = NO;
         _detailLabel.hidden = NO;
         _unLoginLabel.hidden = YES;
@@ -66,7 +66,7 @@
 }
 - (IBAction)showLogin:(id)sender {
     
-    if (![ASHMainUser authorization]) {
+    if (![ASHMainUser userId]) {
         ASHMinePhoneViewController *minePhoneViewController =  [self.storyboard instantiateViewControllerWithIdentifier:@"minePhoneViewController"];
         [self presentViewController:minePhoneViewController animated:YES completion:^{
             

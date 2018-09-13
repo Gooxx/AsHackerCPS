@@ -28,15 +28,39 @@ static NSInteger const PAGE_COUNT = 10;
 //    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
     
-    [self refreshData];
+//    [self refreshData];
     // 自适应高的cell
     self.tableView.estimatedRowHeight = 150.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH1PTableViewCell" bundle:nil] forCellReuseIdentifier:@"ASH1PTableViewCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH3PCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell3P"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH1VCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell1V"];
 
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshDataUP)];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
+    
+    [self refreshDataUP];
 }
 
--(void)refreshData{
- 
+//数据源
+-(void)refreshDataUP{
+    [self refreshDataWithIndex:1];
+}
+
+-(void)refreshDataDown{
+    NSInteger count = _dataArr.count;
+    NSInteger num =  count/PAGE_COUNT;
+    [self refreshDataWithIndex:num+1];
+}
+
+-(void)refreshDataWithIndex:(NSInteger)index{
+    //    http://39.105.46.149/cps/app/cps/mainBbsById.do?id=2
+    //    http://localhost:8080/cps/app/cps/mainLogo.do
+    
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
     if (!_dataArr) {
@@ -45,18 +69,20 @@ static NSInteger const PAGE_COUNT = 10;
     }
     [self.tableView reloadData];
     
-    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count+10];
+    //    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    NSInteger count = _dataArr.count;
-    NSInteger num =  count/PAGE_COUNT;
+//    NSInteger count = _dataArr.count;
+    //    NSInteger num =  count/PAGE_COUNT;
     
-    [params setObject:[NSString stringWithFormat:@"%ld",num] forKey:@"pageIndex"];
-    [params setObject:rowCountStr forKey:@"count"];
+    [params setObject:[NSString stringWithFormat:@"%ld",index] forKey:@"pageIndex"];
+    //    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
+    [params setObject:@"10" forKey:@"count"];
+    [params setObject:@"1" forKey:@"flag"];
     
     
-    [MOMNetWorking asynRequestByMethod:@"mainBbsList.do" params:@{@"flag":@1} publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+    [MOMNetWorking asynRequestByMethod:@"mainBbsList.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
         NSInteger ret = [[result objectForKey:@"ret"] integerValue];
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {
@@ -86,13 +112,34 @@ static NSInteger const PAGE_COUNT = 10;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    NSArray *cellNames = @[@"cpsMainCellLB",@"cpsMainCell1P",@"cpsMainCell3P",@"cpsMainCell1V"];
+    NSArray *cellNames = @[@"cpsMainCellLB",@"ASH1PTableViewCell",@"cpsMainCell3P",@"cpsMainCell1V"];
     if (0==indexPath.row) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cpsMainCellLB" forIndexPath:indexPath];
         return cell;
     }else{
         ASHBBSModel *model = _dataArr[indexPath.row-1];
+        
+        
+////        if (ASHBBSType1P == model.bbs_type) {
+//            UITableViewCell *tcell = [tableView dequeueReusableCellWithIdentifier:@"ASH1PTableViewCell" forIndexPath:indexPath];
+//            if(!tcell){
+//                 tcell = [[[NSBundle mainBundle]loadNibNamed:@"" owner:cellNames[model.bbs_type] options:nil] firstObject];
+//                __weak ASHBBS1PCell *cell = (ASHBBS1PCell *)tcell;
+//                cell.title.text = model.bbs_description;
+//                cell.name.text = model.bbs_title;
+//                cell.time.text = model.bbs_time;
+//                [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+//                tcell = cell;
+//            }
+//        return tcell;
+////        }
+        
+        NSLog(@"model: %@------index:%ld",model,indexPath.row);
+        
         UITableViewCell *tcell = [tableView dequeueReusableCellWithIdentifier:cellNames[model.bbs_type] forIndexPath:indexPath];
+        if(!tcell){
+            tcell = [[[NSBundle mainBundle]loadNibNamed:@"" owner:cellNames[model.bbs_type] options:nil] firstObject];
+        }
         //        ASHBBS1PCell *cell = [tableView dequeueReusableCellWithIdentifier:cellNames[model.bbs_type] forIndexPath:indexPath];
         //        cell.title.text = model.bbs_description;
         //        cell.name.text = model.bbs_title;
@@ -106,7 +153,8 @@ static NSInteger const PAGE_COUNT = 10;
             cell.time.text = model.bbs_time;
             [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
             tcell = cell;
-        }else if (ASHBBSType3P == model.bbs_type) {
+        }
+        else if (ASHBBSType3P == model.bbs_type) {
             __weak ASH3PCell *cell =  (ASH3PCell *)tcell;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
@@ -116,15 +164,24 @@ static NSInteger const PAGE_COUNT = 10;
             [cell.image3 ash_setImageWithURL:model.bbs_minPic];
             tcell = cell;
         }else if (ASHBBSType1V == model.bbs_type) {
+//            "bbs_description" = "\U89c6\U9891\U89c6\U9891\U89c6\U9891\U89c6\U9891\U89c6\U9891";
+//            "bbs_minPic" = "/cps/userfiles/1/_thumbs/images/cms/article/2018/05/team04.jpg";
+//            "bbs_time" = "2018-05-14 20:36:55.0";
+//            "bbs_title" = "\U89c6\U9891";
+//            "bbs_type" = 3;
+//            "bbs_url" = null;
+//            id = 4;
+//            "user_nick" = zhang;
             __weak ASH1VCell *cell =  (ASH1VCell *)tcell;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+            [cell.image1 ash_setImageWithURL:model.bbs_minPic];
             
             tcell = cell;
         }
         return tcell;
+         
     }
     
     return nil;

@@ -21,7 +21,14 @@
 //    _pagerView.frame = self.bounds;
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
 }
-
+-(instancetype)initWithFrame:(CGRect)frame
+{
+   id ctl = [super initWithFrame:frame];
+    _pagerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.bounds.size.height);
+    //    _pagerView.frame = self.bounds;
+    _pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
+    return ctl;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

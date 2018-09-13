@@ -36,15 +36,35 @@ static NSInteger const PAGE_COUNT = 10;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.playerView resetPlayer];
+    
+    [self refreshDataUP];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH1PTableViewCell" bundle:nil] forCellReuseIdentifier:@"ASH1PTableViewCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH3PCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell3P"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ASH1VCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell1V"];
+    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ASHOrganizationBannerCell" bundle:nil] forCellReuseIdentifier:@"ASHOrganizationBannerCell"];
+//    ASHOrganizationBannerCell
+
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ASHBBS1PCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell1P"];
+//    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ASH3PCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell3P"];
+//    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ASH1VCell" bundle:nil] forCellReuseIdentifier:@"cpsMainCell1V"];
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshDataUP)];
 
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
-    [self refreshLogo];
-     [self refreshData];
+    
+//    [self refreshLogo];
+//     [self refreshData];
      // 自适应高的cell
     self.tableView.estimatedRowHeight = 150.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -53,17 +73,19 @@ static NSInteger const PAGE_COUNT = 10;
 //数据源
 -(void)refreshDataUP{
     [self refreshLogo];
-    [self refreshData];
+    [self refreshDataWithIndex:1];
 }
 
 -(void)refreshDataDown{
-    [self refreshData];
+    NSInteger count = _dataArr.count;
+    NSInteger num =  count/PAGE_COUNT;
+    [self refreshDataWithIndex:num+1];
 }
 
--(void)refreshData{
+-(void)refreshDataWithIndex:(NSInteger)index{
     //    http://39.105.46.149/cps/app/cps/mainBbsById.do?id=2
     //    http://localhost:8080/cps/app/cps/mainLogo.do
-    
+   
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
     if (!_dataArr) {
@@ -72,14 +94,15 @@ static NSInteger const PAGE_COUNT = 10;
     }
     [self.tableView reloadData];
     
-    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
+//    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSInteger count = _dataArr.count;
-    NSInteger num =  count/PAGE_COUNT;
+//    NSInteger num =  count/PAGE_COUNT;
     
-    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
+    [params setObject:[NSString stringWithFormat:@"%ld",index] forKey:@"pageIndex"];
+//    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
      [params setObject:@"1" forKey:@"flag"];
     
@@ -176,12 +199,15 @@ static NSInteger const PAGE_COUNT = 10;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    NSArray *cellNames = @[@"cpsMainCellLB",@"cpsMainCell1P",@"cpsMainCell3P",@"cpsMainCell1V"];
+    NSArray *cellNames = @[@"cpsMainCellLB",@"ASH1PTableViewCell",@"cpsMainCell3P",@"cpsMainCell1V"];
     if (0==indexPath.row) {
 //        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHOrganizationBannerCell" forIndexPath:indexPath];
 //        return cell;
         
-        ASHOrganizationBannerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHOrganizationBannerCell" forIndexPath:indexPath];
+        ASHBannerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHBannerTableViewCell" forIndexPath:indexPath];
+//        if(!cell||![cell isKindOfClass:[ASHOrganizationBannerCell class]]){
+//            cell = [[[NSBundle mainBundle]loadNibNamed:@"ASHOrganizationBannerCell" owner:nil options:nil] firstObject];// [[ASHOrganizationBannerCell alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 190)];
+//        }
 //        //        if (!cell) {
         cell.datas = _logoArr;
         [cell loadData];
@@ -215,7 +241,16 @@ static NSInteger const PAGE_COUNT = 10;
         return cell;
     }else{
         ASHBBSModel *model = _dataArr[indexPath.row-1];
+//        UITableViewCell *tcell = [tableView dequeueReusableCellWithIdentifier:cellNames[model.bbs_type] forIndexPath:indexPath];
         UITableViewCell *tcell = [tableView dequeueReusableCellWithIdentifier:cellNames[model.bbs_type] forIndexPath:indexPath];
+        if(!tcell){
+            tcell = [[[NSBundle mainBundle]loadNibNamed:cellNames[model.bbs_type] owner:nil options:nil] firstObject];
+        }
+        
+        
+//        NSLog(@"model: %@------index:%ld",model,indexPath.row);
+        
+        
 //        ASHBBS1PCell *cell = [tableView dequeueReusableCellWithIdentifier:cellNames[model.bbs_type] forIndexPath:indexPath];
 //        cell.title.text = model.bbs_description;
 //        cell.name.text = model.bbs_title;
@@ -224,8 +259,8 @@ static NSInteger const PAGE_COUNT = 10;
         
         if (ASHBBSType1P == model.bbs_type) {
             __weak ASHBBS1PCell *cell = (ASHBBS1PCell *)tcell;
-            cell.title.text = model.bbs_description;
-            cell.name.text = model.bbs_title;
+            cell.title.text = model.bbs_title;
+            cell.name.text = model.user_nick;
             cell.time.text = model.bbs_time;
             [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
             tcell = cell;
@@ -257,7 +292,7 @@ static NSInteger const PAGE_COUNT = 10;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASHBBSModel *model = _dataArr[indexPath.row];
+    ASHBBSModel *model = _dataArr[indexPath.row-1];
     if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
         ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
         

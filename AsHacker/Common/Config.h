@@ -50,9 +50,9 @@
 #define HTTPURL @"http://39.105.46.149:8080/"
 #define MainMethodName @"cps/app/cps/"
 
-#define HTTPURLCDN @"http://39.105.46.149:8080/"
+#define HTTPURLCDN @"http://39.105.46.149:8080"
 
-#define HTTPURL_IMG @"http://39.105.46.149:8080/"
+#define HTTPURL_IMG @"http://39.105.46.149:8080"
 
 //#define HTTPURL_IMG @"http://www.ashacker.com/skiing/upload"
 

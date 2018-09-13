@@ -34,7 +34,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [ASHMainUser cleanInfo];
+//    [ASHMainUser cleanInfo];
     
     [[UINavigationBar appearance]setTintColor:MOMLightGrayColor];
     //向微信注册wxd930ea5d5a258f4f

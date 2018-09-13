@@ -463,7 +463,7 @@
     
 }
 - (void)doJoin2:(id)sender{
-    if (![ASHMainUser authorization]) {
+    if (![ASHMainUser userId]) {
         [self showLogin];
     }else if (![ASHMainUser getPhoneNumber]) {
         UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD bundle:nil];
@@ -495,7 +495,7 @@
 
 - (IBAction)beVolunteer:(id)sender
 {
-    if (![ASHMainUser authorization]) {
+    if (![ASHMainUser userId]) {
         [self showLogin];
     }
     else{
@@ -516,7 +516,7 @@
     if (sender.selected) {
         return;
     }
-    if (![ASHMainUser authorization]) {
+    if (![ASHMainUser userId]) {
         [self showLogin];
     }else if (![ASHMainUser getPhoneNumber]) {
         UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD bundle:nil];
