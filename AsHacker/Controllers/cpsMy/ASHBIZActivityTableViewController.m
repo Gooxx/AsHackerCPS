@@ -74,6 +74,7 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
     //    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"flag"];
+    [params setObject:@"4" forKey:@"type"];
 //    type    文章种类
 //    1首页新闻
 //    2整车信息

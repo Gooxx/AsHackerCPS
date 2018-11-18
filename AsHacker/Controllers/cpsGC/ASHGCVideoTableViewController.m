@@ -68,6 +68,10 @@
     [params setObject:@"1" forKey:@"flag"];
     [params setObject:[NSString stringWithFormat:@"%ld",index] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
+    
+    [params setObject:@"3" forKey:@"type"];
+    [params setObject:_carId forKey:@"carId"];
+    
     //    [params setObject:_carId forKey:@"carId"];
     //    [params setObject:@"1" forKey:@"bbs_type"];
     

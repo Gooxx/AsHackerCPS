@@ -27,7 +27,7 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
 //
 //    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
-    
+    self.tableView.tableFooterView = [[UIView alloc]init];
 //    [self refreshData];
     // 自适应高的cell
     self.tableView.estimatedRowHeight = 150.0f;
@@ -80,7 +80,7 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
     //    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"flag"];
-    
+    [params setObject:@"2" forKey:@"type"];
     
     [MOMNetWorking asynRequestByMethod:@"mainBbsList.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
         NSInteger ret = [[result objectForKey:@"ret"] integerValue];

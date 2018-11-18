@@ -71,7 +71,15 @@ static NSString * const tableCell = @"ASHBandTableViewCell";
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ASHCarModel *model = [self.dataArr objectAtIndex:indexPath.row];
+//    ASHGCMainTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHGCMainTableViewController"];
+    ASHMainViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHMainViewController"];
+    ctl.carId = model.id;
+    [self.navigationController pushViewController:ctl animated:YES];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

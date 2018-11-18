@@ -127,7 +127,7 @@
     //    [dic objectForKey:@""];
 //    NSString *imgURLStr = [NSString stringWithFormat:@"%@%@",HTTPURLCDN,model.logo_img];
     //    cell.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgURLStr]]]];
-    [cell.imageView ash_setImageWithURL:model.logo_img];
+    [cell.imageView ash_setImageWithURL:model.logo_img?model.logo_img:model.img_url];
     return cell;
 }
 

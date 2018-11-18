@@ -281,38 +281,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.057519"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "-loadData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.0580879"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-loadData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMy/ASHCPSServiceViewController.m"
             timestampString = "550662843.395139"
             startingColumnNumber = "9223372036854775807"
@@ -330,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058575"
+            timestampString = "564227401.727749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-refreshDataWithIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058655"
+            timestampString = "564227401.728386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058724"
+            timestampString = "564227401.7285269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058792"
+            timestampString = "564227401.728618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058859"
+            timestampString = "564227401.728698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-refreshLogo"
             landmarkType = "7">
             <Locations>
@@ -457,11 +425,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.058926"
+            timestampString = "564227401.728772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -617,7 +585,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.059431"
+            timestampString = "564227401.729092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -681,7 +649,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.059675"
+            timestampString = "564227401.729575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -697,7 +665,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.059733"
+            timestampString = "564227401.729658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -713,7 +681,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.059788"
+            timestampString = "564227401.729725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -729,7 +697,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.059844"
+            timestampString = "564227401.729793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -745,7 +713,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsFW/ASHFWTableViewController.m"
-            timestampString = "564218903.0599"
+            timestampString = "564227401.729858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -761,11 +729,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.0599591"
+            timestampString = "564227401.72993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -777,11 +745,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.060028"
+            timestampString = "564227401.730006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -793,27 +761,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.060092"
+            timestampString = "564227401.7301151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
+            timestampString = "564227401.7301871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "303"
             endingLineNumber = "303"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.060158"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
             <Locations>
@@ -857,11 +825,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.060222"
+            timestampString = "564227401.7302769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -969,7 +937,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/view/ASHBannerTableViewCell.m"
-            timestampString = "559647343.405633"
+            timestampString = "564227401.7305419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
@@ -1003,7 +971,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/view/ASHBannerTableViewCell.m"
-            timestampString = "559647343.405736"
+            timestampString = "564227401.730987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -1019,7 +987,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/view/ASHBannerTableViewCell.m"
-            timestampString = "559647343.4058371"
+            timestampString = "564227401.731079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -1035,7 +1003,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/view/ASHBannerTableViewCell.m"
-            timestampString = "559647343.405938"
+            timestampString = "564227401.731155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -1051,11 +1019,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.060805"
+            timestampString = "564227401.731236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1147,11 +1115,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsMain/ASHFirstTableViewController.m"
-            timestampString = "564218903.061106"
+            timestampString = "564227401.731472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1515,7 +1483,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHMainViewController.m"
-            timestampString = "559723397.443826"
+            timestampString = "564226151.540686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -1531,7 +1499,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHMainViewController.m"
-            timestampString = "559723397.443894"
+            timestampString = "564226151.5415339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -1547,7 +1515,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHMainViewController.m"
-            timestampString = "559723397.4439501"
+            timestampString = "564226151.541914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -1563,11 +1531,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444006"
+            timestampString = "564227401.732131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1575,15 +1543,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444059"
+            timestampString = "564227401.732605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1591,77 +1559,61 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444108"
+            timestampString = "564227401.732724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.4441561"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-refreshLogo"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[ASHGCMainTableViewController refreshLogo]"
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.142401"
+                  timestampString = "564226231.875868"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "146">
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "149">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__43-[ASHGCMainTableViewController refreshLogo]_block_invoke"
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.1449161"
+                  timestampString = "564226231.879596"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
                   offsetFromSymbolStart = "82">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.109"
+                  symbolName = "__destroy_helper_block_.107"
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.147151"
+                  timestampString = "564226231.883006"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -1674,11 +1626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444204"
+            timestampString = "564227401.732806"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-refreshDataWithIndex:"
             landmarkType = "7">
             <Locations>
@@ -1690,12 +1642,12 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.154599"
+                  timestampString = "564226442.2449239"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "695">
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "775">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1705,11 +1657,11 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.157284"
+                  timestampString = "564226442.247412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
                   offsetFromSymbolStart = "85">
                </Location>
                <Location
@@ -1720,110 +1672,14 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-                  timestampString = "564217793.1595531"
+                  timestampString = "564226442.2498831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.4442509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-refreshDataWithIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-refreshDataUP"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.44434"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "-refreshDataDown"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
-            timestampString = "559723397.444384"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-refreshLogo"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHMainViewController.m"
-            timestampString = "559723397.444428"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHMainViewController.m"
-            timestampString = "559723397.444473"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1897,7 +1753,7 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Tools/Networking/MOMNetWorking.m"
-                  timestampString = "564217793.214813"
+                  timestampString = "564226442.275474"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "509"
@@ -1912,7 +1768,7 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Tools/Networking/MOMNetWorking.m"
-                  timestampString = "564217793.2171071"
+                  timestampString = "564226442.277573"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "509"
@@ -1927,7 +1783,7 @@
                   moduleName = "AsHackerCPS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chentao/Downloads/chen/SVN/AsHackerCPS/AsHacker/Tools/Networking/MOMNetWorking.m"
-                  timestampString = "564217793.219336"
+                  timestampString = "564226442.280308"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "509"
@@ -2084,16 +1940,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.064525"
+            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
+            timestampString = "564227401.733192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-refreshLogo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2103,28 +1959,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.06532"
+            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
+            timestampString = "564227401.733272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "-numberOfSectionsInTableView:"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-refreshDataWithIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.065935"
+            filePath = "AsHacker/Controllers/cpsGC/ASHGCMainTableViewController.m"
+            timestampString = "564227401.7333421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2135,45 +1991,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.066493"
+            filePath = "AsHacker/Controllers/cpsMain/view/ASHBannerTableViewCell.m"
+            timestampString = "564227401.73341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.067065"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AsHacker/Controllers/cpsGC/ASHGCViewController.m"
-            timestampString = "564218903.067636"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-updateData"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-pagerView:cellForItemAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

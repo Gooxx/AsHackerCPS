@@ -75,6 +75,9 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSInteger count = _dataArr.count;
     [params setObject:@"1" forKey:@"flag"];
+    [params setObject:_carId forKey:@"carId"];
+//     [params setObject:@"1" forKey:@"bbs_type"];
+    [params setObject:@"3" forKey:@"type"];
     [params setObject:[NSString stringWithFormat:@"%ld",index] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
 //    [params setObject:_carId forKey:@"carId"];
@@ -90,8 +93,9 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
             NSMutableArray *arrm = [NSMutableArray arrayWithArray:_dataArr];
             NSArray *arr = [ASHBBSModel ModelsWithArray:[dic objectForKey:@"list"]];
             _dataArr = [arrm arrayByAddingObjectsFromArray:arr];
-            [self.tableView reloadData];
+            
         }
+        [self.tableView reloadData];
     }];
    
 }
@@ -99,13 +103,13 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:_carId forKey:@"car_id"];
     
-    [MOMNetWorking asynRequestByMethod:@"carImgList.do" params:@{@"flag":@1} publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+    [MOMNetWorking asynRequestByMethod:@"carImgList.do" params:params publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
         NSInteger ret = [[result objectForKey:@"ret"] integerValue];
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {
             //            _dataArr = [dic objectForKey:@"list"];
             _logoArr = [ASHLogoModel ModelsWithArray:[dic objectForKey:@"list"]];
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
         }
     }];
   
@@ -145,10 +149,10 @@ static NSString *const k1V_CELL = @"cpsMainCell1V";
         __weak typeof(self)  weakSelf      = self;
         
         cell.showBlock = ^(TYCyclePagerView *pageView, UICollectionViewCell *cell, NSInteger index) {
-            ASHLogoModel *model = _logoArr[index];
-            ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
-            ctl.detailId = model.id;
-            [weakSelf.navigationController pushViewController:ctl animated:YES];
+//            ASHLogoModel *model = _logoArr[index];
+//            ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
+//            ctl.detailId = model.id;
+//            [weakSelf.navigationController pushViewController:ctl animated:YES];
             
         };
         return cell;

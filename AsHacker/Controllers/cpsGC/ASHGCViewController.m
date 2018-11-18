@@ -166,6 +166,14 @@ static NSString * const tableCell = @"ASHBandTableViewCell";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    CarBrandModel *model =[[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    NSDictionary *dic = [_topArr objectAtIndex:indexPath.row];
+    ASHGCarTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHGCarTableViewController"];
+    ctl.bandId = [dic objectForKey:@"id"];
+    [self.navigationController pushViewController:ctl animated:YES];
+}
 
 #pragma mark -Table View Data Source Methods
 #pragma mark -设置右方表格的索引数组

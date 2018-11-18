@@ -18,6 +18,7 @@
 
 #import "ASHLogoModel.h"
 #import "ASHBBSModel.h"
+#import "ASHCarBBSModel.h"
 
 #import "ASH1VCell.h"
 #import "ASHBBS1PCell.h"
