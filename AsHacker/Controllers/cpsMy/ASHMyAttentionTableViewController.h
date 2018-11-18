@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ASHMyAttentionTableViewController : UITableViewController
+#import "ASHTableViewController.h"
+#import "ASHAttentionTableViewCell.h"
+@interface ASHMyAttentionTableViewController : ASHTableViewController
 
 @end

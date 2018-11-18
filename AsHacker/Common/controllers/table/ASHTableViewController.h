@@ -15,6 +15,9 @@
 #import "UIImageView+ASH.h"
 #import "MJRefresh.h"
 
+#import "ASHBBSModel.h"
+
+
 @interface ASHTableViewController : UITableViewController
 @property (nonatomic,assign)BOOL ifAutoSizeCell;
 

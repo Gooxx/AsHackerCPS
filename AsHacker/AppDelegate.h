@@ -18,7 +18,7 @@
 
 #import "MOMNetWorking.h"
 
-#import "ASHSupportPrePayTableViewController.h"
+//#import "ASHSupportPrePayTableViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

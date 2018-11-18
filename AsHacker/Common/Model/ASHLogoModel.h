@@ -33,4 +33,10 @@
 @property (nonatomic , strong) NSString *logo_flag;
 @property (nonatomic , strong) NSString *logo_url;
 
+//id    主键
+//img_name    图片名称
+//img_url    图片链接
+@property (nonatomic , strong) NSString *img_name;
+@property (nonatomic , strong) NSString *img_url;
+
 @end

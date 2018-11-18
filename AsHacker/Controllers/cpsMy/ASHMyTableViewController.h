@@ -13,6 +13,9 @@
 #import "PListUtil.h"
 #import "UIImageView+ASH.h"
 
+#import "MOMFilter.h"
+#import "ASHMineUserInfoController.h"
+
 @interface ASHMyTableViewController : UIViewController
 
 

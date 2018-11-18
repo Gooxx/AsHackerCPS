@@ -13,7 +13,7 @@
 //#import "MOMCurrentUser.h"
 #import "ASHMainUser.h"
 #import "Config.h"
-//#import "MOMFilter.h"
+#import "MOMFilter.h"
 //#import "MOMTest.h"
 
 @interface MOMNetWorking : NSObject
@@ -59,6 +59,8 @@
  *  @param failure 失败回调
  */
 +(void)requestPictureByMethod:(NSString *)method fileURL:(NSString *)fileURL params:(NSString *)params publicParams:(MOMNetPublicParam)publicParams callback:(void(^)(id result,NSError *error))callback;
+
++(void)requestVideoByMethod:(NSString *)method fileURL:(NSString *)fileURL params:(NSString *)params publicParams:(MOMNetPublicParam)publicParams callback:(void(^)(id result,NSError *error))callback;
 
 
 /**

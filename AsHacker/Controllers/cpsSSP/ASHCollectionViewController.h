@@ -20,6 +20,10 @@
 
 #import "ASHGPUImageController.h"
 
+#import "ASHVideoPlayerViewController.h"
+#import "ASHVideotapeViewController.h"
+#import "CameraFilterVC.h"
+
 @interface ASHCollectionViewController : UICollectionViewController
 
 @end

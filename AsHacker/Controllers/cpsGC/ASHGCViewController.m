@@ -10,36 +10,80 @@
 
 @interface ASHGCViewController ()
 @property(nonatomic,strong)NSArray *dataArr;
+
+@property(nonatomic,strong)NSArray *bandArr;
+@property(nonatomic,strong)NSArray *topArr;
+
+@property(nonatomic,strong)NSMutableArray *indexArray;//去重后的首字母
+@property(nonatomic,strong)NSMutableArray *letterResultArr;//按照首字母排序后的集合
 @end
 
 static NSString * const collectionCell = @"cpsCarCollectCell";
-static NSString * const tableCell = @"cpsCarCell";
+static NSString * const tableCell = @"ASHBandTableViewCell";
 
 @implementation ASHGCViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+     [self updateData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+//    self.collectionView.delegate = self;
+//    self.collectionView.dataSource = self;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    // 自适应高的cell
+    self.tableView.estimatedRowHeight = 150.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-//    NSString * name = @"Info";
-//    NSString *PLIST = @"plist";
-//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
-//    NSString *path = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",name,PLIST]];
+    [self updateData];
+    
+    
+}
+
+
+-(void)updateData{
+    [MOMNetWorking asynRequestByMethod:@"topCarList.do" params:nil publicParams:MOMNetPublicParamNone callback:^(id result, NSError *error) {
+        NSInteger ret = [[result objectForKey:@"ret"] integerValue];
+        NSDictionary *dic = result;
+        if (MOMResultSuccess==ret) {
+            
+//            _dataArr = [dic objectForKey:@"listCar"];
+//            listCar
+//            "car_name": "A6",
+//            "id": "2",
+//            "show_pic": ""
+            NSArray *arr  =[dic objectForKey:@"listBrand"];
+            
+            
+            _topArr  =[dic objectForKey:@"listCar"];
+            
+            CarBrandModel *carBandModel = [CarBrandModel ModelsWithArray:arr];
+            self.indexArray =[NSMutableArray arrayWithObject:@"top"];
+           [self.indexArray addObjectsFromArray:[ChineseString IndexArray:carBandModel]];
+            self.letterResultArr =[NSMutableArray arrayWithObject:@[[CarBrandModel new]]];;
+            [self.letterResultArr addObjectsFromArray:[ChineseString LetterSortArray:carBandModel]] ;
+            
+            
+            [self.tableView  reloadData];
+            
+//            NSArray*indexArray = [arr arraywithpin  arrayWithPinYinFirstLetterFormat];
 //
-//    NSLog(@"plist path:%@---path1:%@",path,path1);
-//
-////    [PListUtil plistArrayByName:'Info.plist'];
-//    id aaa = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-//    id aaa1 = [[NSMutableDictionary alloc] initWithContentsOfFile:path1];
-    [self loadData:^(NSDictionary *dict) {
-        
+//            self.dataArr= [NSMutableArrayarrayWithArray:indexArray];
+            
+//            listBrand
+//            "brand_cnName": "阿尔法·罗密欧",
+//            "brand_enName": "aerfa·luomiou",
+//            "brand_logo": "http://39.105.46.149/cps/fileUpload/brand/carImg2.jpg",
+//            "id": "3"
+            
+        }
     }];
 }
+
 -(NSArray *)dataArr{
     return _dataArr?_dataArr:[NSArray array];
 }
@@ -108,29 +152,209 @@ static NSString * const tableCell = @"cpsCarCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return _topArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCell forIndexPath:indexPath];
-    
+    NSArray *arr = _topArr;
+    NSDictionary *dic = [arr objectAtIndex:indexPath.row];
+    ASHGCTopCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCell forIndexPath:indexPath];
+    cell.carLabel.text =[dic objectForKey:@"car_name"];
+    [cell.carIV ash_setImageWithURL:[dic objectForKey:@"show_pic"]];
     
     
     return cell;
 }
 
 
+#pragma mark -Table View Data Source Methods
+#pragma mark -设置右方表格的索引数组
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
 
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataArr.count;
+        return [self.indexArray objectAtIndex:section];
+
+}
+
+-(NSArray *) sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return self.indexArray;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+    return index;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self.indexArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ASHCarInfoModel *model = [self.dataArr objectAtIndex:section];
-    return model.brands.count;
+    return [[self.letterResultArr objectAtIndex:section]count];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section ==0&&indexPath.row==0) {
+        return 250;
+    }else{
+        return UITableViewAutomaticDimension;
+    }
+}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 80;
+//}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CarBrandModel *model =[[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    ASHGCarTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHGCarTableViewController"];
+    ctl.bandId = model.id;
+    [self.navigationController pushViewController:ctl animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section==0&&indexPath.row==0) {
+        
+        ASHGCTopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHGCTopTableViewCell" forIndexPath:indexPath];
+        cell.collectionView.delegate = self;
+        cell.collectionView.dataSource = self;
+        return cell;
+    }else{
+        
+        ASHBandTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableCell forIndexPath:indexPath];
+        
+        CarBrandModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+        cell.nameLabel.text =model.brand_cnName;
+        [cell.iconIV ash_setImageWithURL:[model brand_logo]];
+        //    cell.textLabel.text =  [(CarBrandModel *)brand name];
+        //    static NSString *cellName =
+        //    ASHMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellNames[indexPath.row] forIndexPath:indexPath];
+        //    NSDictionary *dic = _dataArr[indexPath.row];
+        //    [cell showMainData:dic];
+        return cell;
+    }
+    return nil;
+//    BookItemViewCell *cell = [BookItemViewCell cellWithTableView:tableView];
+//    cell.book=[[self.LetterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+//    cell.delegate=self;
+//    return cell;
+}
+
+
+/*
+#pragma mark - Table view data source
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    
+    NSMutableArray *toBeReturned = [[NSMutableArray alloc]init];
+
+    for(char c = 'A';c<='Z';c++)
+
+        [toBeReturned addObject:[NSString stringWithFormat:@"%c",c]];
+
+    return toBeReturned;
+    
+//    NSMutableArray*resultArray =[NSMutableArray arrayWithObject:UITableViewIndexSearch];
+//
+//    for(NSDictionary*dict in self.dataArray) {
+//
+//        NSString*title = dict[@"firstLetter"];
+//
+//        [resultArrayaddObject:title];
+//
+//    }
+//
+//    return resultArray;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    //这里是为了指定索引index对应的是哪个section的，默认的话直接返回index就好。其他需要定制的就针对性处理
+    
+    if([title isEqualToString:UITableViewIndexSearch])
+        
+    {
+        [tableView setContentOffset:CGPointZero animated:NO];
+//        [tableView  setContentOff set:CGPointZero animated:NO];//tabview移至顶部
+        
+        return NSNotFound;
+        
+    }
+    
+    else
+        
+    {
+        return [[UILocalizedIndexedCollation currentCollation]sectionForSectionIndexTitleAtIndex:index]-1;
+//        return[[UILocalizedIndexedCollation currentCollation]sectionForSectionIndexTitleAtIndex:index] -1;// -1添加了搜索标识
+        
+    }
+    
+   
+//    NSInteger count = 0;
+//
+//    for(NSString *character in _bandArr)
+//
+//    {
+//
+//        if([character isEqualToString:title])
+//
+//            {
+//
+//            return count;
+//
+//            }
+//
+//        count ++;
+//
+//    }
+//
+//    return 0;
+    
+}
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//
+//    if([arrayOfCharacters count]==0)
+//
+//        {
+//
+//        return @"";
+//
+//        }
+//
+//        return [arrayOfCharacters objectAtIndex:section];
+//
+//}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _bandArr.count;//1;//self.dataArr.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    ASHCarInfoModel *model = [self.dataArr objectAtIndex:section];
+//    return _bandArr.count;//model.brands.count;
+    if(section ==0) {
+        
+        return 1;
+        
+    }else{
+        
+        NSDictionary*dict =_bandArr[section];
+        
+        NSMutableArray*array = dict[@"content"];
+        
+        return [array count];
+        
+    }
+    
 }
 
 
@@ -139,18 +363,18 @@ static NSString * const tableCell = @"cpsCarCell";
    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableCell forIndexPath:indexPath];
     
-    ASHCarInfoModel *carInfoModel = [self.dataArr objectAtIndex:indexPath.section];
-    CarBrandModel *brand = [carInfoModel.brands objectAtIndex:indexPath.row];
-    if ([brand isKindOfClass:[CarBrandModel class]]) {
+//    ASHCarInfoModel *carInfoModel = [self.dataArr objectAtIndex:indexPath.section];
+//    CarBrandModel *brand = [carInfoModel.brands objectAtIndex:indexPath.row];
+//    if ([brand isKindOfClass:[CarBrandModel class]]) {
 //        UIImage *image = [UIImage imageNamed: [(CarBrandModel *)brand icon]];
         
 //        cell.imageView.image =image;
-        [cell.imageView ash_setImageWithURL:[(CarBrandModel *)brand icon]];
-        
-        [cell.imageView limitImage:[(CarBrandModel *)brand icon] withSize:CGSizeMake(30, 30)];
-    }
-   
-    cell.textLabel.text =  [(CarBrandModel *)brand name];
+//        [cell.imageView ash_setImageWithURL:[(CarBrandModel *)brand icon]];
+//
+//        [cell.imageView limitImage:[(CarBrandModel *)brand icon] withSize:CGSizeMake(30, 30)];
+//    }
+    cell.textLabel.text = @"1";
+//    cell.textLabel.text =  [(CarBrandModel *)brand name];
     //    static NSString *cellName =
     //    ASHMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellNames[indexPath.row] forIndexPath:indexPath];
     //    NSDictionary *dic = _dataArr[indexPath.row];
@@ -158,7 +382,7 @@ static NSString * const tableCell = @"cpsCarCell";
     return cell;
 }
 
-
+*/
 - (void)bindModel:(id)model {
     
 //    __weak typeof(self)wself = self;

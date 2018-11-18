@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+
+
+#import "Config.h"
+#import "ASHMainUser.h"
+#import "MOMNetWorking.h"
+#import "UIImageView+ASH.h"
+#import "MOMProgressHUD.h"
+
 #import "ASHBBSModel.h"
+#import "MJRefresh.h"
+
+#import "ZFPlayer.h"
+#import "JWPlayer.h"
+
+#import "ASHVideoTableViewCell.h"
+
+
+
+#import "ASH1VCell.h"
+#import "ASHBBS1PCell.h"
+#import "ASH3PCell.h"
 @interface ASHNewsVideoDetailTableViewController : UITableViewController
 @property(nonatomic,strong)ASHBBSModel *lModel;
 

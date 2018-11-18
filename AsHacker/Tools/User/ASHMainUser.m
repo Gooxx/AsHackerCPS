@@ -330,32 +330,32 @@
 
 //bbsCount    动态数量    String
 +(void)setBbsCount:(NSString *)count{
-     [MOMUserDefaults setObject:count forKey:@"bbsCount"];
+     [MOMUserDefaults setObject:count forKey:@"bbs_count"];
 }
 +(NSString *)bbsCount
 {
-    return  [MOMUserDefaults objectForKey:@"bbsCount"]?[MOMUserDefaults objectForKey:@"bbsCount"]:@"0";
+    return  [MOMUserDefaults objectForKey:@"bbs_count"]?[MOMUserDefaults objectForKey:@"bbs_count"]:@"0";
     
 }
 
 //followCount    关注数量    String
 +(void)setFollowCount:(NSString *)count
 {
-    [MOMUserDefaults setObject:count forKey:@"followCount"];
+    [MOMUserDefaults setObject:count forKey:@"follow_count"];
 }
 +(NSString *)followCount
 {
-    return  [MOMUserDefaults objectForKey:@"followCount"]?[MOMUserDefaults objectForKey:@"followCount"]:@"0";
+    return  [MOMUserDefaults objectForKey:@"follow_count"]?[MOMUserDefaults objectForKey:@"follow_count"]:@"0";
     
 }
 //fansCount    粉丝数量    String
 +(void)setFansCount:(NSString *)count
 {
-    [MOMUserDefaults setObject:count forKey:@"fansCount"];
+    [MOMUserDefaults setObject:count forKey:@"fans_count"];
 }
 +(NSString *)fansCount
 {
-    return  [MOMUserDefaults objectForKey:@"fansCount"]?[MOMUserDefaults objectForKey:@"fansCount"]:@"0";
+    return  [MOMUserDefaults objectForKey:@"fans_count"]?[MOMUserDefaults objectForKey:@"fans_count"]:@"0";
     
 }
 
@@ -368,8 +368,7 @@
 {
     return  [MOMUserDefaults objectForKey:@"user_info"]?[MOMUserDefaults objectForKey:@"user_info"]:@"";
 }
-
-+(void)updateUserInfo:(NSDictionary *)dic
++(void)loginUserInfo:(NSDictionary *)dic
 {
     NSString *token =[dic objectForKey:@"user_token"];
     NSString *userId =[dic objectForKey:@"user_id"];
@@ -383,9 +382,29 @@
     [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
     [ASHMainUser setShowInfo:[dic objectForKey:@"user_info"]];
     [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
-    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
-    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
-    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
+    [ASHMainUser setBbsCount:[dic objectForKey:@"bbs_count"]];
+    [ASHMainUser setFollowCount:[dic objectForKey:@"follow_count"]];
+    [ASHMainUser setFansCount:[dic objectForKey:@"fans_count"]];
+    
+    [MOMUserDefaults setObject:dic forKey:@"userInfo"];
+}
++(void)updateUserInfo:(NSDictionary *)dic
+{
+//    NSString *token =[dic objectForKey:@"user_token"];
+    NSString *userId =[dic objectForKey:@"id"];
+    NSString *phoneNum =[dic objectForKey:@"phone_num"];
+//    NSString *isfirstlogin =[dic objectForKey:@"is_first_login"];
+//    [ASHMainUser setToken:token];
+    [ASHMainUser setUserId:userId];
+    [ASHMainUser setPhoneNumber:phoneNum];
+//    [ASHMainUser setFirstLogin:isfirstlogin];
+    
+    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
+    [ASHMainUser setShowInfo:[dic objectForKey:@"user_info"]];
+    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
+    [ASHMainUser setBbsCount:[dic objectForKey:@"bbs_count"]];
+    [ASHMainUser setFollowCount:[dic objectForKey:@"follow_count"]];
+    [ASHMainUser setFansCount:[dic objectForKey:@"fans_count"]];
     
     [MOMUserDefaults setObject:dic forKey:@"userInfo"];
 }

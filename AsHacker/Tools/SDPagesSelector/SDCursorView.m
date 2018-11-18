@@ -26,7 +26,7 @@ static NSString *const cellIdentifier = @"selectorCell";
         self.backgroundColor = [UIColor whiteColor];
         //设置颜色默认值
         _normalFont = _selectedFont = [UIFont systemFontOfSize:14];
-        _normalColor = [UIColor blackColor];
+        _normalColor = [UIColor whiteColor];
         _selectedColor = [UIColor redColor];
         _currentIndex = 0;
         _lineEdgeInsets = UIEdgeInsetsMake(0, 3, 2, 3);
@@ -41,8 +41,8 @@ static NSString *const cellIdentifier = @"selectorCell";
 -(UIScrollView*)rootScrollView
 {
     if (!_rootScrollView) {
-        _rootScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)+150, CGRectGetWidth(self.bounds), self.contentViewHeight)];
-        _rootScrollView.backgroundColor = [UIColor blackColor];
+        _rootScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds), self.contentViewHeight)];
+        _rootScrollView.backgroundColor = [UIColor whiteColor];
         _rootScrollView.pagingEnabled = YES;
         _rootScrollView.delegate = self;
         _rootScrollView.alwaysBounceHorizontal = YES;
@@ -62,7 +62,7 @@ static NSString *const cellIdentifier = @"selectorCell";
 {
     if (!_lineView) {
         _lineView = [[UIView alloc]init];
-        _lineView.backgroundColor = [UIColor blackColor];
+        _lineView.backgroundColor = [UIColor whiteColor];
         [self.collectionView addSubview:_lineView];
     }
     return _lineView;
@@ -81,7 +81,7 @@ static NSString *const cellIdentifier = @"selectorCell";
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.scrollsToTop = NO;
-        _collectionView.backgroundColor = [UIColor blackColor];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[SDSelectorCell class] forCellWithReuseIdentifier:cellIdentifier];
@@ -158,9 +158,9 @@ static NSString *const cellIdentifier = @"selectorCell";
 -(void)resizeLineViewWihtCellFrame:(CGRect)frame animated:(BOOL)animated
 {
     CGFloat height = 3.0f;
-    CGRect rect = CGRectMake(CGRectGetMinX(frame)+_lineEdgeInsets.left,
+    CGRect rect = CGRectMake(CGRectGetMinX(frame)+_lineEdgeInsets.left+20,
                              CGRectGetHeight(self.collectionView.frame)-height-_lineEdgeInsets.bottom,
-                             CGRectGetWidth(frame)-_lineEdgeInsets.left*2, height-_lineEdgeInsets.top);
+                             CGRectGetWidth(frame)-_lineEdgeInsets.left*2-40, height-_lineEdgeInsets.top);
     
     if (animated) {
         [UIView animateWithDuration:0.3f animations:^{

@@ -15,6 +15,15 @@
 #import "ASHCarInfoModel.h"
 
 #import "PListUtil.h"
+#import "ChineseString.h"
+
+#import "ASHBandTableViewCell.h"
+#import "ASHGCTopTableViewCell.h"
+#import "ASHGCTopCollectionViewCell.h"
+
+#import "ASHGCarTableViewController.h"
+
+
 
 @interface ASHGCViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

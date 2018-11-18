@@ -22,14 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
+    videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionBack];
     //输出方向为竖屏
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
     //滤镜
     filter = [[GPUImageSepiaFilter alloc] init];
 //    //显示view
-    filterView = [[GPUImageView alloc]initWithFrame:self.view.bounds];
+//    filterView = [[GPUImageView alloc]initWithFrame:self.view.bounds];
+    filterView = [[GPUImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 400)];
     filterView.backgroundColor = [UIColor redColor];
     [self.view addSubview:filterView];
     
@@ -41,7 +42,9 @@
     [videoCamera startCameraCapture];
     
     //设置写入地址
-    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/LiveMovied.m4v"];
+//    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/LiveMovied.m4v"];
+    NSString *pathToMovie = [@"Documents/" stringByAppendingFormat:@"Movie%d.m4v",(int)[[NSDate date] timeIntervalSince1970]];
+    
     movieURL = [NSURL fileURLWithPath:pathToMovie];
     
     movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480.0, 640.0)];

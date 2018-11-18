@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -74,7 +74,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>
@@ -178,9 +178,13 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>cameraDesciption</string>
+	<string>是否允许车品尚使用您的相册拍摄头像</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>是否允许筹小鸭使用您的位置</string>
+	<string>是否允许车品尚使用您的位置进行充电桩查找</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>是否允许车品尚使用您的麦克风进行短视频录音</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>是否允许车品尚使用您的相册存储短视频</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>photoLibraryDesciption</string>
 	<key>UIBackgroundModes</key>

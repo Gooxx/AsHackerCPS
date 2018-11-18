@@ -275,23 +275,11 @@
                     
                     [MOMProgressHUD showSuccessWithStatus:@"登陆成功"];
                     
-                    [ASHMainUser updateUserInfo:dic];
-//                    NSString *token =[dic objectForKey:@"user_token"];
-//                    NSString *userId =[dic objectForKey:@"user_id"];
-//                    NSString *phoneNum =[dic objectForKey:@"phone_num"];
-//                    NSString *isfirstlogin =[dic objectForKey:@"is_first_login"];
-//                    [ASHMainUser setToken:token];
-//                    [ASHMainUser setUserId:userId];
-//                    [ASHMainUser setPhoneNumber:phoneNum];
-//                    [ASHMainUser setFirstLogin:isfirstlogin];
-//
-//                    [ASHMainUser setNick:[dic objectForKey:@"user_nick"]];
-//                    [ASHMainUser setHead:[dic objectForKey:@"user_head"]];
-//                    [ASHMainUser setBbsCount:[dic objectForKey:@"bbsCount"]];
-//                    [ASHMainUser setFollowCount:[dic objectForKey:@"followCount"]];
-//                    [ASHMainUser setFansCount:[dic objectForKey:@"fansCount"]];
-                    
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [ASHMainUser loginUserInfo:dic];
+
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
                     
                 }else{
                     [MOMProgressHUD showSuccessWithStatus:@"登陆失败"];
@@ -300,6 +288,11 @@
             }];
     }
     
+}
+- (IBAction)doStop:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 //
 //-(void)updateUserInfo:(NSDictionary *)dic

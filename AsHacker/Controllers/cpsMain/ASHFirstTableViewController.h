@@ -31,6 +31,8 @@
 #import "ASHNewsVideoDetailTableViewController.h"
 
 
+#import "MOMFilter.h"
+
 //#import "ASHFirstDetailTableViewController.h"
 //#import "ASHMainTableViewCell.h"
 @interface ASHFirstTableViewController : UITableViewController

@@ -29,7 +29,7 @@ static NSString *const k1P_CELL = @"cpsMainCell1P";
 static NSString *const k3P_CELL = @"cpsMainCell3P";
 static NSString *const k1V_CELL = @"cpsMainCell1V";
 
-static NSInteger const PAGE_COUNT = 10;
+//static NSInteger const PAGE_COUNT = 10;
 @implementation ASHFirstTableViewController
 
 // 页面消失时候
@@ -37,11 +37,12 @@ static NSInteger const PAGE_COUNT = 10;
     [super viewWillDisappear:animated];
     [self.playerView resetPlayer];
     
-    [self refreshDataUP];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//     [self.tableView registerClass:[ASHBannerTableViewCell class] forCellReuseIdentifier:@"ASHBannerTableViewCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ASH1PTableViewCell" bundle:nil] forCellReuseIdentifier:@"ASH1PTableViewCell"];
     
@@ -69,6 +70,15 @@ static NSInteger const PAGE_COUNT = 10;
     self.tableView.estimatedRowHeight = 150.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    
+    [MOMFilter registerFliterIn:self];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshDataUP];
 }
 //数据源
 -(void)refreshDataUP{
@@ -77,8 +87,8 @@ static NSInteger const PAGE_COUNT = 10;
 }
 
 -(void)refreshDataDown{
-    NSInteger count = _dataArr.count;
-    NSInteger num =  count/PAGE_COUNT;
+    double count = _dataArr.count;
+    NSInteger num = ceil(count/PAGE_COUNT);
     [self refreshDataWithIndex:num+1];
 }
 
@@ -112,7 +122,10 @@ static NSInteger const PAGE_COUNT = 10;
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {
             //            _dataArr = [dic objectForKey:@"list"];
-            _dataArr = [ASHBBSModel ModelsWithArray:[dic objectForKey:@"list"]];
+//            _dataArr = [ASHBBSModel ModelsWithArray:[dic objectForKey:@"list"]];
+            NSMutableArray *arrm = [NSMutableArray arrayWithArray:_dataArr];
+            NSArray *arr = [ASHBBSModel ModelsWithArray:[dic objectForKey:@"list"]];
+            _dataArr = [arrm arrayByAddingObjectsFromArray:arr];
             [self.tableView reloadData];
         }
     }];
@@ -186,7 +199,14 @@ static NSInteger const PAGE_COUNT = 10;
 
 
 #pragma mark - Table view data source
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section ==0&&indexPath.row==0) {
+        return 200;
+    }else{
+        return UITableViewAutomaticDimension;
+    }
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -204,40 +224,33 @@ static NSInteger const PAGE_COUNT = 10;
 //        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHOrganizationBannerCell" forIndexPath:indexPath];
 //        return cell;
         
-        ASHBannerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHBannerTableViewCell" forIndexPath:indexPath];
-//        if(!cell||![cell isKindOfClass:[ASHOrganizationBannerCell class]]){
+//        ASHBannerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASHBannerTableViewCell" forIndexPath:indexPath];
+//
+//
+//        if(!cell){
 //            cell = [[[NSBundle mainBundle]loadNibNamed:@"ASHOrganizationBannerCell" owner:nil options:nil] firstObject];// [[ASHOrganizationBannerCell alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 190)];
+        ASHBannerTableViewCell *cell = [[ASHBannerTableViewCell alloc]createBanner:CGRectMake(0, 0, ScreenWidth, 190)];
+        
+//        ASHBannerTableViewCell *cell = [[ASHBannerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ASHBannerTableViewCell"];
+            NSLog(@"---------");
 //        }
 //        //        if (!cell) {
-        cell.datas = _logoArr;
+        cell.datas = _logoArr; 
         [cell loadData];
         //        __block NSIndexPath *weakIndexPath = indexPath;
         //    __block ZFPlayerCell *weakCell     = cell;
         //        __block ASHOrganizationBannerCell *weakCell     = cell;
         
         
-//        __weak typeof(self)  weakSelf      = self;
+        __weak typeof(self)  weakSelf      = self;
         
-//        cell.showBlock = ^(TYCyclePagerView *pageView, UICollectionViewCell *cell, NSInteger index) {
-//            ASHLogoModel *model = _logoArr[indexPath.row];
-////            if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
-//                ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
-//                ctl.detailId = model.id;
-////                ctl.lModel = model;
-//
-//                [self.navigationController pushViewController:ctl animated:YES];
-//
-////            }else if (ASHBBSType1V == model.bbs_type) {
-////                ASHNewsVideoDetailTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsVideoDetailTableViewController"];
-//////                ctl.lModel = model;
-////                ctl.detailId = model.id;
-////                [self.navigationController pushViewController:ctl animated:YES];
-////            }
-////            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:FIRST_STORYBOARD bundle:nil];
-////            ASHFirstDetailTableViewController *ctl = [storyboard instantiateViewControllerWithIdentifier:@"ASHFirstDetailTableViewController"];
-////            ctl.dataDic = _dataArr[index];
-////            [weakSelf.navigationController pushViewController:ctl animated:YES];
-//        };
+        cell.showBlock = ^(TYCyclePagerView *pageView, UICollectionViewCell *cell, NSInteger index) {
+                ASHLogoModel *model = _logoArr[index];
+                ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
+                ctl.detailId = model.id;
+                [weakSelf.navigationController pushViewController:ctl animated:YES];
+            
+        };
         return cell;
     }else{
         ASHBBSModel *model = _dataArr[indexPath.row-1];
@@ -262,23 +275,42 @@ static NSInteger const PAGE_COUNT = 10;
             cell.title.text = model.bbs_title;
             cell.name.text = model.user_nick;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+//            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images[0]];
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
+            
             tcell = cell;
         }else if (ASHBBSType3P == model.bbs_type) {
             __weak ASH3PCell *cell =  (ASH3PCell *)tcell;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
-            [cell.image2 ash_setImageWithURL:model.bbs_minPic];
-            [cell.image3 ash_setImageWithURL:model.bbs_minPic];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images.count>1?images[0]:@""];
+                [cell.image2 ash_setImageWithURL:images.count>2?images[1]:@""];
+                [cell.image3 ash_setImageWithURL:images.count>3?images[2]:@""];
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
+
             tcell = cell;
         }else if (ASHBBSType1V == model.bbs_type) {
             __weak ASH1VCell *cell =  (ASH1VCell *)tcell;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+//            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images[0]];
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
            
             tcell = cell;
         }

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Config.h"
+#import "ASHMissionModel.h"
+#import "ASHTableViewController.h"
 
-@interface ASHMyMissionTableViewController : UITableViewController
+#import "ASHMissionTableViewCell.h"
+
+@interface ASHMyMissionTableViewController : ASHTableViewController
 
 @end

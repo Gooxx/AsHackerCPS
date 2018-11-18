@@ -18,6 +18,10 @@
  brand_enName    品牌英文名
  brand_logo    品牌商标
  
+ "brand_cnName": "阿尔法·罗密欧",
+ "brand_enName": "aerfa·luomiou",
+ "brand_logo": "http://39.105.46.149/cps/fileUpload/brand/carImg2.jpg",
+ "id": "3"
  
  */
 @interface ASHCarModel : CommonRuntime_Model
@@ -27,6 +31,6 @@
 
 @property (nonatomic , strong) NSString *show_pic;
 
-@property (nonatomic , strong) NSArray *listBrand;
+//@property (nonatomic , strong) NSArray *listBrand;
 
 @end

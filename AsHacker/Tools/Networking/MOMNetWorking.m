@@ -42,6 +42,12 @@ static AFHTTPSessionManager *manager;
         NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
         //        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         callback(obj,error);
+        
+//        if (![MOMFilter filterResult:obj]) {
+//            callback(obj,error);
+//        }
+//
+        
 //        NSString *reAccessToken = [refreshDict objectForKey:@"access_token"];
 //        if (reAccessToken) {
 //
@@ -165,7 +171,11 @@ static AFHTTPSessionManager *manager;
              NSSLog(@"URLStr2:%@?%@--%@------obj:%@",URLStr,mParams,allParams,obj);
 //            NSSLog(@"obj------------:%@",obj);
             
-            callback(obj,error);
+//            callback(obj,error);
+            if ([MOMFilter filterResult:obj]) {
+                callback(obj,error);
+            }
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 //            [MOMProgressHUD dismiss];
             NSSLog(@"failure-----------网络请求失败了");
@@ -357,11 +367,16 @@ static AFHTTPSessionManager *manager;
         params = [NSMutableDictionary dictionary];
     }
 
-    NSString *methodName=@"m/api/uploadAvatar";
+    NSString *methodName=method;//@"m/api/uploadAvatar";
 
+//    NSMutableDictionary *allParams = [self createPublicParams:publicParams];
+//    [allParams addEntriesFromDictionary:params];
+//    NSString *URLStr = [NSString stringWithFormat:@"%@%@",HTTPURL,methodName];
+    
     NSMutableDictionary *allParams = [self createPublicParams:publicParams];
     [allParams addEntriesFromDictionary:params];
-    NSString *URLStr = [NSString stringWithFormat:@"%@%@",HTTPURL,methodName];
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@%@",HTTPURL,MainMethodName,method];
+    
     
     
     /**/
@@ -450,6 +465,116 @@ static AFHTTPSessionManager *manager;
     [uploadTask resume];
 }
 
+
+
+//视频
++(void)requestVideoByMethod:(NSString *)method fileURL:(NSString *)fileURL params:(NSMutableDictionary *)params publicParams:(MOMNetPublicParam)publicParams callback:(void(^)(id result,NSError *error))callback
+{
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    if (!params) {
+        params = [NSMutableDictionary dictionary];
+    }
+    
+    NSString *methodName=method;//@"m/api/uploadAvatar";
+    
+    //    NSMutableDictionary *allParams = [self createPublicParams:publicParams];
+    //    [allParams addEntriesFromDictionary:params];
+    //    NSString *URLStr = [NSString stringWithFormat:@"%@%@",HTTPURL,methodName];
+    
+    NSMutableDictionary *allParams = [self createPublicParams:publicParams];
+    [allParams addEntriesFromDictionary:params];
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@%@",HTTPURL,MainMethodName,method];
+    
+    
+    
+    /**/
+    NSMutableDictionary *dic = allParams;//[allParams addEntriesFromDictionary:params];
+    NSMutableString *mParams =  [NSMutableString string];
+    NSEnumerator *enumerator = dic.keyEnumerator;
+    NSString *temp=[enumerator nextObject];
+    while (temp) {
+        [mParams appendFormat:@"%@=%@&",temp,dic[temp]];
+        temp=[enumerator nextObject];
+    }
+    
+    [mParams appendFormat:@"method=%@",method];
+    
+    [allParams setObject:method forKey:@"method"];
+    //     [mParams appendString:params?params:@""];
+    NSLog(@"---URLStr:%@?%@--%@",URLStr,mParams,allParams);
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:URLStr parameters:allParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:fileURL] name:@"file" fileName:@"filename.png" mimeType:@"image/png" error:nil];
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:fileURL] name:@"file-input" fileName:@"filename.m4v" mimeType:@"multipart/form-data" error:nil];
+        //        if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
+        //            [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+        //
+        //        }
+        //        formData appendPartWithHeaders:<#(nullable NSDictionary<NSString *,NSString *> *)#> body:<#(nonnull NSData *)#>
+        
+        
+        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:fileURL] name:@"file" fileName:@"filename.png" mimeType:@"image/png" error:nil];
+    } error:nil];
+    //    [request setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+    
+    //    NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    //    [request setHTTPMethod:@"POST"];
+    //    [request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    ////    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    //    [request setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
+    //    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[paramData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    //    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    //    [request setValue:@"image/png" forHTTPHeaderField:@"Content-Type"];
+    //    [request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    //    [request addValue:@"multipart/form-data" forHTTPHeaderField:@"Accept"];
+    //    [[AFHTTPResponseSerializer serializer] setAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+    
+    //    manager.responseSerializer
+    
+    //                if ([ASHMainUser authorization]&&publicParams!=MOMNetPublicParamNone) {
+    //                    [manager.requestSerializer setValue:[ASHMainUser authorization] forHTTPHeaderField:@"authorization"];
+    //
+    //                }
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                      // This is not called back on the main queue.
+                      // You are responsible for dispatching to the main queue for UI updates
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          //Update the progress view
+                          //                          [progressView setProgress:uploadProgress.fractionCompleted];
+                          NSSLog(@"uploadProgress.fractionCompleted:%f",uploadProgress.fractionCompleted);
+                      });
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                          
+                          NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                          
+                          string = [string stringByReplacingOccurrencesOfString:@"<script language=\"javascript\" type=\"text/javascript\">window.top.window.jQuery(\"#temporary_iframe_id\").data(\"deferrer\").resolve(" withString:@""];
+                          string = [string stringByReplacingOccurrencesOfString:@");</script>" withString:@""];
+                          string = [string stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\""];
+                          //            string = [string stringByReplacingOccurrencesOfString:@"0\"\"" withString:@""];
+                          
+                          NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+                          NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+                      }
+                      
+                      
+                      callback(responseObject,error);
+                  }];
+    
+    [uploadTask resume];
+}
 /**
  *  同步查询
  *
@@ -590,7 +715,7 @@ static AFHTTPSessionManager *manager;
     }
     if (publicParams&MOMNetPublicParamUserId) {
         NSString *userId = [ASHMainUser userId];
-        [params setObject:userId forKey:@"userId"];
+        [params setObject:userId forKey:@"user_id"];
     }
     
     

@@ -132,7 +132,7 @@
 //
 //+(void)setObserveAreaName:(NSString *)areaName;
 //+(NSString *)observeAreaName;
-
++(void)loginUserInfo:(NSDictionary *)dic;
 //更新用户信息
 +(void)updateUserInfo:(NSDictionary *)dic;
 //清除信息

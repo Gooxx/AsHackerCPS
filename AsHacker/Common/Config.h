@@ -79,6 +79,10 @@
 #define MORE_STORYBOARD @"More"
 
 //storyboard里的viewController
+
+#define LOGIN_NAVI @"ASHLoginNavi"
+#define LOGIN_CTL @"ASHLoginViewController"
+
 #define Main_CTL @"mainTVC"
 #define Main_NAVI @"mainNavi"
 
@@ -206,7 +210,7 @@ typedef NS_ENUM(NSInteger, MOMResult) {
     MOMResultWrongWXOpenId = 5,
     
     MOMResultReLogin,
-    MOMResultNOLogin = 400,
+    MOMResultNOLogin = 9,
     MOMResultSuccess2 = 200
 };
 //性别
@@ -287,7 +291,7 @@ typedef NS_ENUM(NSInteger, ASHBBSTypes) {
 typedef void(^MOMBlock) (MOMResult ret,id result,NSError*error);
 typedef void(^MOMFailureBlock) (NSError*error);
 #define kWaitTime 60 // 验证码倒计时
-
+#define PAGE_COUNT 10.0 //每页的数据量
 //float MOMOSVersion();
 //CGRect MOMApplicationBounds();
 

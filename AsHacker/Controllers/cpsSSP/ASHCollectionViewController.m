@@ -11,7 +11,7 @@
 @interface ASHCollectionViewController ()
 @property(strong,nonatomic)NSArray *dataArr;
 @end
-static NSInteger const PAGE_COUNT = 10;
+//static NSInteger const PAGE_COUNT = 10;
 @implementation ASHCollectionViewController
 
 static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
@@ -22,27 +22,43 @@ static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
     
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshDataDown)];
     
-       [self refreshData];
+       
 
+    [self.collectionView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 //    [self.collectionView registerNib:[ASHSSPCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshDataUP];
+}
 - (IBAction)addSSP:(id)sender {
+    CameraFilterVC *ctl = [[CameraFilterVC alloc]init];
+    ctl.hidesBottomBarWhenPushed = YES;
 //    ASHGPUImageController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHGPUImageController"];
-////    ASHGPUImageController *ctl = [[ASHGPUImageController alloc]init];
+//    ASHGPUImageController *ctl = [[ASHGPUImageController alloc]init];
+    [self.navigationController pushViewController:ctl animated:YES];
+    
+//    ASHVideotapeViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHVideotapeViewController"];
 //    [self.navigationController pushViewController:ctl animated:YES];
 }
 //数据源
+//数据源
 -(void)refreshDataUP{
     
-    [self refreshData];
+    [self refreshDataWithIndex:1];
 }
 
 -(void)refreshDataDown{
-    [self refreshData];
+    double count = _dataArr.count;
+    NSInteger num = ceil(count/PAGE_COUNT);
+    [self refreshDataWithIndex:num+1];
 }
 
--(void)refreshData{
+
+
+-(void)refreshDataWithIndex:(NSInteger)index{
     [self.collectionView.mj_header endRefreshing];
     [self.collectionView.mj_footer endRefreshing];
     if (!_dataArr) {
@@ -58,14 +74,10 @@ static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
     //    userId    文章类别    String
     //    pageIndex    起始数    String
     //    count    每页显示数    String
-//    NSString *rowCountStr = [NSString stringWithFormat:@"%ld",_dataArr.count>0?_dataArr.count:0];
-    
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     NSInteger count = _dataArr.count;
-    NSInteger num =  count/PAGE_COUNT;
-    
-    [params setObject:[NSString stringWithFormat:@"%ld",num+1] forKey:@"pageIndex"];
+    [params setObject:[NSString stringWithFormat:@"%ld",index] forKey:@"pageIndex"];
     [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"flag"];
     
@@ -75,7 +87,14 @@ static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
         NSDictionary *dic = result;
         if (MOMResultSuccess==ret) {
             //            _dataArr = [dic objectForKey:@"list"];
-            _dataArr = [ASHVideoModel ModelsWithArray:[dic objectForKey:@"list"]];
+            if (index==1) {
+                _dataArr = [ASHVideoModel ModelsWithArray:[dic objectForKey:@"list"]];
+            }else{
+                NSMutableArray *arrm = [NSMutableArray arrayWithArray:_dataArr];
+                NSArray *arr = [ASHVideoModel ModelsWithArray:[dic objectForKey:@"list"]];
+                _dataArr = [arrm arrayByAddingObjectsFromArray:arr];
+            }
+            
             [self.collectionView reloadData];
         }
     }];
@@ -111,10 +130,10 @@ static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ASHVideoModel *model =_dataArr[indexPath.row];
     ASHSSPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-//    if (!cell) {
-//        cell = [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:nil options:nil];
-//    }
-//    cell.bgIV ash_setImageWithURL:model.
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:nil options:nil]firstObject];
+    }
+    [cell.bgIV ash_setImageWithURL:model.video_name];
     
     cell.titleLabel.text = model.video_title;
     cell.nameLabel.text = model.video_description;
@@ -124,7 +143,14 @@ static NSString * const reuseIdentifier = @"ASHSSPCollectionViewCell";
 }
 
 #pragma mark <UICollectionViewDelegate>
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    ASHVideoModel *model =_dataArr[indexPath.row];
+    
+    ASHVideoPlayerViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHVideoPlayerViewController"];
+    ctl.sspId = model.id;
+    [self.navigationController pushViewController:ctl animated:YES];
+    
+}
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

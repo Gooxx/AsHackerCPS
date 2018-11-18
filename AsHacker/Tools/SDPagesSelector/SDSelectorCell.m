@@ -19,12 +19,12 @@
         self.backgroundColor = [UIColor whiteColor];
         
         _selectedColor = [UIColor redColor];
-        _normalColor = [UIColor whiteColor];
+        _normalColor = [UIColor grayColor];
         _selectedFont = _normalFont = [UIFont systemFontOfSize:14];
         
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.backgroundColor = [UIColor blackColor];
+        _titleLabel.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_titleLabel];
     }
     return self;

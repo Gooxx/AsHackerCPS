@@ -16,7 +16,7 @@ static NSString *const k1P_CELL = @"cpsMainCell1P";
 static NSString *const k3P_CELL = @"cpsMainCell3P";
 static NSString *const k1V_CELL = @"cpsMainCell1V";
 
-static NSInteger const PAGE_COUNT = 10;
+//static NSInteger const PAGE_COUNT = 10;
 @implementation ASHFWTableViewController
 
 - (void)viewDidLoad {
@@ -52,8 +52,8 @@ static NSInteger const PAGE_COUNT = 10;
 }
 
 -(void)refreshDataDown{
-    NSInteger count = _dataArr.count;
-    NSInteger num =  count/PAGE_COUNT;
+    double count = _dataArr.count;
+    NSInteger num = ceil(count/PAGE_COUNT);
     [self refreshDataWithIndex:num+1];
 }
 
@@ -151,7 +151,14 @@ static NSInteger const PAGE_COUNT = 10;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+//            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images.count>1?images[0]:@""];
+               
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
             tcell = cell;
         }
         else if (ASHBBSType3P == model.bbs_type) {
@@ -159,9 +166,14 @@ static NSInteger const PAGE_COUNT = 10;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic ];
-            [cell.image2 ash_setImageWithURL:model.bbs_minPic];
-            [cell.image3 ash_setImageWithURL:model.bbs_minPic];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images.count>1?images[0]:@""];
+                [cell.image2 ash_setImageWithURL:images.count>2?images[1]:@""];
+                [cell.image3 ash_setImageWithURL:images.count>3?images[2]:@""];
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
             tcell = cell;
         }else if (ASHBBSType1V == model.bbs_type) {
 //            "bbs_description" = "\U89c6\U9891\U89c6\U9891\U89c6\U9891\U89c6\U9891\U89c6\U9891";
@@ -176,7 +188,14 @@ static NSInteger const PAGE_COUNT = 10;
             cell.title.text = model.bbs_description;
             cell.name.text = model.bbs_title;
             cell.time.text = model.bbs_time;
-            [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+//            [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            if ([model.bbs_minPic containsString:@"||"]) {
+                NSArray *images = [model.bbs_minPic componentsSeparatedByString:@"||"];
+                [cell.image1 ash_setImageWithURL:images.count>1?images[0]:@""];
+               
+            }else{
+                [cell.image1 ash_setImageWithURL:model.bbs_minPic];
+            }
             
             tcell = cell;
         }
@@ -191,22 +210,42 @@ static NSInteger const PAGE_COUNT = 10;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASHBBSModel *model = _dataArr[indexPath.row];
+    ASHBBSModel *model = _dataArr[indexPath.row-1];
     if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
         ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
         
-        ctl.lModel = model;
+        //        ctl.lModel = model;
+        ctl.detailId = model.id;
         
         [self.navigationController pushViewController:ctl animated:YES];
         
     }else if (ASHBBSType1V == model.bbs_type) {
         ASHNewsVideoDetailTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsVideoDetailTableViewController"];
-        ctl.lModel = model;
+        //        ctl.lModel = model;
+        ctl.detailId = model.id;
         [self.navigationController pushViewController:ctl animated:YES];
     }
     
     
 }
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    ASHBBSModel *model = _dataArr[indexPath.row];
+//    if (ASHBBSType1P == model.bbs_type||ASHBBSType3P == model.bbs_type) {
+//        ASHNewsTWDetailViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsTWDetailViewController"];
+//
+//        ctl.lModel = model;
+//
+//        [self.navigationController pushViewController:ctl animated:YES];
+//
+//    }else if (ASHBBSType1V == model.bbs_type) {
+//        ASHNewsVideoDetailTableViewController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHNewsVideoDetailTableViewController"];
+//        ctl.lModel = model;
+//        [self.navigationController pushViewController:ctl animated:YES];
+//    }
+//
+//
+//}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

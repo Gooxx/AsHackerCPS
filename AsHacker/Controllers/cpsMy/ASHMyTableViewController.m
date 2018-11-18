@@ -51,23 +51,65 @@ static NSString * const tableCell = @"cpsMyCellCPS";
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
-    
+    [self selectUserInfo];
     [self.iconIV ash_setImageWithURL:[ASHMainUser head]];
-    self.nickLabel.text = [ASHMainUser nick];
-    self.infoLabel.text = [ASHMainUser showInfo];
+//    self.nickLabel.text = [ASHMainUser nick];
+//    self.infoLabel.text = [ASHMainUser showInfo];
+//    
+//    self.publishLabel.text  = [ASHMainUser bbsCount];
+//    self.observeLabel.text = [ASHMainUser followCount];
+//    self.fansLabel.text = [ASHMainUser fansCount];
+}
+
+//获取个人资料
+-(void)selectUserInfo{
     
-    self.publishLabel.text  = [ASHMainUser bbsCount];
-    self.observeLabel.text = [ASHMainUser followCount];
-    self.fansLabel.text = [ASHMainUser fansCount];
+    
+    [MOMNetWorking asynRequestByMethod:@"getUserInfo.do" params:nil publicParams:MOMNetPublicParamUserId|MOMNetPublicParamToken callback:^(id result, NSError *error) {
+        NSInteger ret = [[result objectForKey:@"ret"] integerValue];
+        NSDictionary *dic = result;
+        if (MOMResultSuccess==ret) {
+            //            NSDictionary *dict =[dic objectForKey:@"user"];
+            //            _dataDic = dict;
+            [ASHMainUser updateUserInfo:dic];
+            
+            [self.iconIV ash_setImageWithURL:[ASHMainUser head]];
+            self.nickLabel.text = [ASHMainUser nick];
+            self.infoLabel.text = [ASHMainUser showInfo];
+            
+            self.publishLabel.text  = [ASHMainUser bbsCount];
+            self.observeLabel.text = [ASHMainUser followCount];
+            self.fansLabel.text = [ASHMainUser fansCount];
+//            [self.tableView reloadData];
+        }else{
+            [MOMProgressHUD showSuccessWithStatus:@"登陆失败"];
+        }
+    }];
 }
 - (IBAction)doEdit:(id)sender {
-    [self showMe:nil];
+    if ([ASHMainUser token]&&![@"" isEqualToString:[ASHMainUser token]]) {
+        ASHMineUserInfoController *ctl = [self.storyboard instantiateViewControllerWithIdentifier:@"ASHMineUserInfoController"];
+        [self.navigationController pushViewController:ctl animated:YES];
+    }else{
+        [self showMe:nil];
+    }
+    
+
 }
 
 -(void)showMe:(UITapGestureRecognizer *)sender
 {
-    id ctl =  [self.storyboard instantiateViewControllerWithIdentifier:@"ASHLoginViewController"];
-    [self.navigationController pushViewController:ctl animated:YES];
+    UIViewController *mainTVController = [self.storyboard instantiateViewControllerWithIdentifier:LOGIN_NAVI];
+    //            [viewCtl.navigationController pushViewController:mainTVController animated:YES];
+    //            UIViewController *mainTVController = [story instantiateViewControllerWithIdentifier:Main_NAVI];
+    [self presentViewController:mainTVController animated:YES completion:^{
+        
+    }];
+//    id ctl =  [self.storyboard instantiateViewControllerWithIdentifier:@"ASHLoginViewController"];
+////    [self.navigationController pushViewController:ctl animated:YES];
+//    [self presentViewController:ctl animated:YES completion:^{
+//
+//    }];
     
 }
 

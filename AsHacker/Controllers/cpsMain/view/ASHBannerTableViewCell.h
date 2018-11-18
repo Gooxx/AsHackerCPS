@@ -14,11 +14,13 @@
 #import "TYCyclePagerViewCell.h"
 
 #import "ASHLogoModel.h"
-@interface ASHBannerTableViewCell : UITableViewCell
+@interface ASHBannerTableViewCell : UITableViewCell<TYCyclePagerViewDelegate,TYCyclePagerViewDataSource>
 @property (nonatomic, strong) TYCyclePagerView *pagerView;
 @property (nonatomic, strong) TYPageControl *pageControl;
 @property (nonatomic, strong) NSArray *datas;
 
 @property (nonatomic, copy  ) void(^showBlock)(TYCyclePagerView *,UICollectionViewCell *,NSInteger);
 - (void)loadData;
+-(instancetype)initWithFrame:(CGRect)frame;
+-(instancetype)createBanner:(CGRect)frame;
 @end

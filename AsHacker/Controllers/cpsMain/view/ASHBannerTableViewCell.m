@@ -12,21 +12,53 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+//    [self addPagerView];
+//    [self addPageControl];
+    
+//    [self loadData];
+//
+//    _pagerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.bounds.size.height);
+//    //    _pagerView.frame = self.bounds;
+//    _pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
+}
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [super initWithCoder:aDecoder];
+
+}
+-(instancetype)createBanner:(CGRect)frame
+{
+    ASHBannerTableViewCell *ctl = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ASHBannerTableViewCell"];
+    ctl.frame = frame;//CGRectMake(0, 0, SCREEN_WIDTH, 180);
     [self addPagerView];
     [self addPageControl];
     
     [self loadData];
     
+    
     _pagerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.bounds.size.height);
     //    _pagerView.frame = self.bounds;
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
+    
+    
+    return ctl;
 }
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     id ctl = [super initWithFrame:frame];
+    
+    [self addPagerView];
+    [self addPageControl];
+
+    [self loadData];
+    
+    
     _pagerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.bounds.size.height);
     //    _pagerView.frame = self.bounds;
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
+    
+
     return ctl;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -78,13 +110,13 @@
     //        [datas addObject:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:arc4random()%255/255.0]];
     //    }
     //    _datas = [datas copy];
-    _pageControl.numberOfPages = _datas.count<=3?_datas.count:3;
+    _pageControl.numberOfPages = _datas.count;//<=3?_datas.count:3;
     [_pagerView reloadData];
 }
 #pragma mark - TYCyclePagerViewDataSource
 
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
-    return _datas.count<=3?_datas.count:3;
+    return _datas.count;//<=3?_datas.count:3;
 }
 
 - (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
@@ -116,7 +148,7 @@
 
 #pragma mark - action
 
-- (IBAction)switchValueChangeAction:(UISwitch *)sender {
+- (void)switchValueChangeAction:(UISwitch *)sender {
     if (sender.tag == 0) {
         _pagerView.isInfiniteLoop = sender.isOn;
         [_pagerView updateData];
@@ -130,7 +162,7 @@
     }
 }
 
-- (IBAction)sliderValueChangeAction:(UISlider *)sender {
+- (void)sliderValueChangeAction:(UISlider *)sender {
     if (sender.tag == 0) {
         _pagerView.layout.itemSize = CGSizeMake(CGRectGetWidth(_pagerView.frame)*sender.value, CGRectGetHeight(_pagerView.frame)*sender.value);
         [_pagerView setNeedUpdateLayout];
@@ -144,7 +176,7 @@
     }
 }
 
-- (IBAction)buttonAction:(UIButton *)sender {
+- (void)buttonAction:(UIButton *)sender {
     _pagerView.layout.layoutType = sender.tag;
     [_pagerView setNeedUpdateLayout];
 }

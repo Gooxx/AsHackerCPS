@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Config.h"
+#import "ASHBBSModel.h"
+#import "ASHTableViewController.h"
 
-@interface ASHBIZActivityTableViewController : UITableViewController
+#import "ASH1VCell.h"
+#import "ASHBBS1PCell.h"
+#import "ASH3PCell.h"
+@interface ASHBIZActivityTableViewController : ASHTableViewController
 
 @end

@@ -15,11 +15,24 @@
  "name": "阿斯顿·马丁"
  }
  */
+//            listCar
+//            "car_name": "A6",
+//            "id": "2",
+//            "show_pic": ""
+
+
+//"brand_cnName": "阿尔法·罗密欧",
+//"brand_enName": "aerfa·luomiou",
+//"brand_logo": "http://39.105.46.149/cps/fileUpload/brand/carImg2.jpg",
+//"id": "3"
 
 @interface CarBrandModel : CommonRuntime_Model
-
-@property (nonatomic , strong) NSString *icon;
-@property (nonatomic , assign) long id;
-@property (nonatomic , strong) NSString *name;
+@property (nonatomic , strong) NSString *brand_cnName;
+@property (nonatomic , strong) NSString *id;
+@property (nonatomic , strong) NSString *brand_enName;
+@property (nonatomic , strong) NSString *brand_logo;
+//@property (nonatomic , strong) NSString *icon;
+//@property (nonatomic , assign) long id;
+//@property (nonatomic , strong) NSString *name;
 
 @end
